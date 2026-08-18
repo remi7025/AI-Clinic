@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import {
   Bar,
   BarChart,
@@ -30,6 +30,14 @@ const CHART_H = 240;
 
 export function OverviewPage() {
   const { filtered, selectedThemes } = useDashboard();
+  const [hover, setHover] = useState<{
+    name: string;
+    region: string;
+    maturity: string;
+    score: number;
+    x: number;
+    y: number;
+  } | null>(null);
 
   const stats = useMemo(() => {
     const devices = filtered.reduce((s, r) => s + r.aiDevicesApproved, 0);
@@ -60,16 +68,21 @@ export function OverviewPage() {
     const values = mapRows.map((r) => overallScore(r, selectedThemes));
     const min = values.length ? Math.min(...values) : 0;
     const max = values.length ? Math.max(...values) : 10;
-    const byIso: Record<string, { color: string; value: number; name: string }> = {};
+    const byIso: Record<
+      string,
+      { color: string; value: number; name: string; region: string; maturity: string }
+    > = {};
     for (const r of mapRows) {
       const score = overallScore(r, selectedThemes);
       byIso[r.iso3] = {
         color: interpolateColor(score, min, max),
         value: score,
         name: r.country,
+        region: r.region,
+        maturity: r.maturity,
       };
     }
-    return { byIso };
+    return { byIso, min, max };
   }, [filtered, selectedThemes]);
 
   const maturityData = MATURITY_ORDER.map((m) => ({
@@ -116,7 +129,11 @@ export function OverviewPage() {
       <div className="grid min-h-0 flex-1 grid-cols-12 gap-3">
         <div className="col-span-12 lg:col-span-5">
           <VisualTile title="Global regulatory maturity" subtitle="Overall score (1–10)" accent="blue">
-            <div className="map-container" style={{ height: CHART_H }}>
+            <div
+              className="map-container relative overflow-hidden"
+              style={{ height: CHART_H }}
+              onMouseLeave={() => setHover(null)}
+            >
               <ComposableMap projection="geoEqualEarth" className="h-full w-full">
                 <ZoomableGroup>
                   <Geographies geography={GEO_URL}>
@@ -131,8 +148,38 @@ export function OverviewPage() {
                             fill={entry?.color ?? "#e8ecf2"}
                             stroke="#fff"
                             strokeWidth={0.4}
+                            onMouseEnter={(evt) => {
+                              if (!entry) {
+                                setHover(null);
+                                return;
+                              }
+                              const box = (evt.currentTarget.closest(".map-container") as HTMLElement)
+                                ?.getBoundingClientRect();
+                              setHover({
+                                name: entry.name,
+                                region: entry.region,
+                                maturity: entry.maturity,
+                                score: entry.value,
+                                x: evt.clientX - (box?.left ?? 0),
+                                y: evt.clientY - (box?.top ?? 0),
+                              });
+                            }}
+                            onMouseMove={(evt) => {
+                              if (!entry) return;
+                              const box = (evt.currentTarget.closest(".map-container") as HTMLElement)
+                                ?.getBoundingClientRect();
+                              setHover((prev) =>
+                                prev
+                                  ? {
+                                      ...prev,
+                                      x: evt.clientX - (box?.left ?? 0),
+                                      y: evt.clientY - (box?.top ?? 0),
+                                    }
+                                  : prev,
+                              );
+                            }}
                             style={{
-                              default: { outline: "none" },
+                              default: { outline: "none", cursor: entry ? "pointer" : "default" },
                               hover: {
                                 fill: entry ? "#118dff" : "#d0d5dd",
                                 outline: "none",
@@ -146,9 +193,30 @@ export function OverviewPage() {
                   </Geographies>
                 </ZoomableGroup>
               </ComposableMap>
+              {hover && (
+                <div
+                  className="map-tooltip"
+                  style={{ left: Math.min(hover.x + 12, 260), top: Math.max(hover.y - 8, 8) }}
+                >
+                  <p className="map-tooltip-title">{hover.name}</p>
+                  <p>Region={hover.region}</p>
+                  <p>Maturity={hover.maturity}</p>
+                  <p>Overall Score={hover.score.toFixed(1)}</p>
+                </div>
+              )}
+            </div>
+            <div className="mt-1 flex items-center justify-between gap-2 px-1">
+              <span className="text-[9px] text-[#8a929e]">Low</span>
+              <div
+                className="h-1.5 flex-1 rounded-full"
+                style={{
+                  background: `linear-gradient(90deg, ${interpolateColor(mapLookup.min, mapLookup.min, mapLookup.max)}, ${interpolateColor((mapLookup.min + mapLookup.max) / 2, mapLookup.min, mapLookup.max)}, ${interpolateColor(mapLookup.max, mapLookup.min, mapLookup.max)})`,
+                }}
+              />
+              <span className="text-[9px] text-[#8a929e]">High</span>
             </div>
             <p className="mt-1 text-center text-[9px] text-[#8a929e]">
-              EU is an aggregate in data · member states colored individually
+              Hover a country for region, maturity, and score · EU is an aggregate in data
             </p>
           </VisualTile>
         </div>

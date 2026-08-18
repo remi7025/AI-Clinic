@@ -309,6 +309,28 @@ body {
   border-radius: 2px;
 }
 
+.map-tooltip {
+  position: absolute;
+  z-index: 20;
+  pointer-events: none;
+  min-width: 160px;
+  background: #fff;
+  border: 1px solid #d8dee8;
+  border-radius: 4px;
+  padding: 8px 10px;
+  box-shadow: 0 6px 18px rgba(26, 35, 50, 0.16);
+  font-size: 11px;
+  line-height: 1.45;
+  color: #4a5568;
+}
+
+.map-tooltip-title {
+  font-weight: 700;
+  color: #1B3A5C;
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+
 .recharts-default-tooltip {
   font-family: "Segoe UI", sans-serif !important;
   font-size: 11px !important;

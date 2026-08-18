@@ -33,11 +33,9 @@ export function LiteratureTab() {
   return (
     <div className="space-y-8">
       <div>
-        <h3 className="text-xl font-semibold text-brand-900">Literature Review Summary</h3>
-        <p className="mt-2 text-sm text-slate-600">
-          Key findings from the systematic literature review on AI healthcare compliance and
-          regulations, aligned with project objectives in the AI Clinic specification.
-        </p>
+        <h3 className="text-xl font-semibold text-brand-900">
+          AI for Healthcare Compliance and Regulations Across Countries
+        </h3>
       </div>
 
       <section>

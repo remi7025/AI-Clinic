@@ -1,5 +1,5 @@
 export const DASHBOARD_TITLE =
-  "A literature review and interactive dashboard on AI for healthcare compliance and regulations across countries";
+  "AI for Healthcare Compliance and Regulations Across Countries";
 
 export const DASHBOARD_TAGLINE =
   "Interactive comparison of AI regulations in healthcare across 20 countries and 6 regions";

@@ -1,31 +1,11 @@
-import { useState } from "react";
-import {
-  BookOpen,
-  Building2,
-  ChevronDown,
-  Dna,
-  ExternalLink,
-  GraduationCap,
-  Microscope,
-  Pill,
-  Search,
-  Sparkles,
-  Users,
-} from "lucide-react";
+import { useState, type ReactNode } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { ChevronDown, Search } from "lucide-react";
 import { useDashboard } from "../../../context/DashboardContext";
-import { LITERATURE_CARDS } from "../../../constants";
-import {
-  DASHBOARD_TAGLINE,
-  DASHBOARD_TITLE,
-  LITERATURE_SECTIONS,
-  METHOD_SECTIONS,
-  SOURCE_LINKS,
-} from "../../../content/literatureGuide";
-import { PBI_COLORS } from "../chartTheme";
+import { METHOD_SECTIONS, SOURCE_LINKS } from "../../../content/literatureGuide";
+import reviewMarkdown from "../../../content/literatureReview.md?raw";
 import { VisualTile } from "../VisualTile";
-import type { KeyReference } from "../../../types";
-
-const TAKEAWAY_ICONS = [Microscope, Dna, Pill, Building2, Users, Sparkles] as const;
 
 const REF_TYPE_STYLES: Record<string, string> = {
   Guideline: "bg-emerald-100 text-emerald-800 border-emerald-200",
@@ -39,31 +19,49 @@ const REF_TYPE_STYLES: Record<string, string> = {
   "Literature Review": "bg-violet-100 text-violet-800 border-violet-200",
 };
 
-function RefCard({ reference }: { reference: KeyReference }) {
-  const badge = REF_TYPE_STYLES[reference.type] ?? "bg-slate-100 text-slate-600 border-slate-200";
-  return (
-    <article className="literature-ref-card group">
-      <div className="flex items-start justify-between gap-2">
-        <p className="text-[12px] font-semibold leading-snug text-[#1a2332] group-hover:text-[#118dff]">
-          {reference.title}
-        </p>
-        <span className={`shrink-0 rounded border px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide ${badge}`}>
-          {reference.type}
-        </span>
-      </div>
-      <p className="mt-1.5 text-[11px] text-[#5c6578]">
-        {reference.author}
-        <span className="mx-1 text-[#c8ced8]">·</span>
-        {reference.year}
-      </p>
-    </article>
-  );
-}
+const MARKDOWN_COMPONENTS = {
+  h1: ({ children }: { children?: ReactNode }) => (
+    <h1 className="literature-h1">{children}</h1>
+  ),
+  h2: ({ children }: { children?: ReactNode }) => (
+    <h2 className="literature-h2">{children}</h2>
+  ),
+  h3: ({ children }: { children?: ReactNode }) => (
+    <h3 className="literature-h3">{children}</h3>
+  ),
+  p: ({ children }: { children?: ReactNode }) => (
+    <p className="literature-p">{children}</p>
+  ),
+  ul: ({ children }: { children?: ReactNode }) => (
+    <ul className="literature-ul">{children}</ul>
+  ),
+  ol: ({ children }: { children?: ReactNode }) => (
+    <ol className="literature-ol">{children}</ol>
+  ),
+  li: ({ children }: { children?: ReactNode }) => (
+    <li className="literature-li">{children}</li>
+  ),
+  strong: ({ children }: { children?: ReactNode }) => (
+    <strong className="font-semibold text-[#1a2332]">{children}</strong>
+  ),
+  hr: () => <hr className="literature-hr" />,
+  table: ({ children }: { children?: ReactNode }) => (
+    <div className="literature-table-wrap overflow-x-auto">
+      <table className="literature-table">{children}</table>
+    </div>
+  ),
+  th: ({ children }: { children?: ReactNode }) => (
+    <th className="literature-th">{children}</th>
+  ),
+  td: ({ children }: { children?: ReactNode }) => (
+    <td className="literature-td">{children}</td>
+  ),
+};
 
 export function LiteraturePage() {
   const { references } = useDashboard();
   const [query, setQuery] = useState("");
-  const [openId, setOpenId] = useState(METHOD_SECTIONS[0].id);
+  const [openId, setOpenId] = useState("");
 
   const filteredRefs = references.filter(
     (r) =>
@@ -75,27 +73,25 @@ export function LiteraturePage() {
 
   return (
     <div className="flex h-full flex-col gap-3 overflow-y-auto p-3">
-      <header className="literature-hero shrink-0">
-        <div className="mb-2 flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/15 text-white">
-            <BookOpen className="h-4 w-4" />
-          </span>
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
-            Literature review
-          </span>
-        </div>
-        <h1 className="max-w-4xl text-base font-bold leading-snug text-white sm:text-lg">
-          {DASHBOARD_TITLE}
-        </h1>
-        <p className="mt-2 max-w-4xl text-[12px] leading-relaxed text-white/80">
-          {DASHBOARD_TAGLINE}. Same evidence base as the Streamlit prototype: FDA, EMA, WHO, OECD,
-          IMDRF, national agencies, and peer-reviewed literature (2018–2026).
+      <div>
+        <h3 className="text-lg font-semibold text-[#1a2332]">Literature Review Summary</h3>
+        <p className="mt-1 text-[13px] leading-relaxed text-[#5c6578]">
+          This section presents key findings from the systematic literature review on AI healthcare
+          compliance and regulations.
         </p>
-      </header>
+      </div>
+
+      <div className="rounded-md border border-[#dde3ec] bg-white px-5 py-4 shadow-sm">
+        <article className="literature-pro literature-report">
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={MARKDOWN_COMPONENTS}>
+            {reviewMarkdown}
+          </ReactMarkdown>
+        </article>
+      </div>
 
       <VisualTile
-        title="Methods, scores, variables, gaps, and sources"
-        subtitle="How this dashboard was built"
+        title="Dashboard methods (scores, pipeline, variables, gaps)"
+        subtitle="How charts and classes are calculated"
         accent="blue"
       >
         <div className="space-y-1.5">
@@ -128,74 +124,24 @@ export function LiteraturePage() {
         </div>
       </VisualTile>
 
-      <div className="grid grid-cols-12 gap-3">
-        <div className="col-span-12 lg:col-span-5">
-          <VisualTile title="Domain insights" subtitle="Key takeaways by use case" accent="purple">
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-              {LITERATURE_CARDS.map(([title, body], i) => {
-                const Icon = TAKEAWAY_ICONS[i % TAKEAWAY_ICONS.length];
-                return (
-                  <div key={title} className="literature-takeaway-card">
-                    <div
-                      className="mb-1.5 flex h-7 w-7 items-center justify-center rounded-md text-white"
-                      style={{ background: PBI_COLORS[i % PBI_COLORS.length] }}
-                    >
-                      <Icon className="h-3.5 w-3.5" />
-                    </div>
-                    <p className="text-[11px] font-bold text-[#1a2332]">{title}</p>
-                    <p className="mt-0.5 text-[10px] leading-snug text-[#5c6578]">{body}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </VisualTile>
-        </div>
-
-        <div className="col-span-12 lg:col-span-7">
-          <VisualTile title="Official source links" subtitle="Websites used for coding and recommendations" accent="gold">
-            <div className="max-h-[280px] space-y-1.5 overflow-y-auto pr-1">
-              {SOURCE_LINKS.map((s) => (
-                <a
-                  key={s.url}
-                  href={s.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="literature-ref-card group flex items-start justify-between gap-2 hover:border-[#118dff50]"
-                >
-                  <div>
-                    <p className="text-[12px] font-semibold text-[#1a2332] group-hover:text-[#118dff]">
-                      {s.title}
-                    </p>
-                    <p className="mt-0.5 text-[10px] text-[#5c6578]">{s.note}</p>
-                  </div>
-                  <ExternalLink className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#8a929e]" />
-                </a>
-              ))}
-            </div>
-          </VisualTile>
-        </div>
-      </div>
-
-      <VisualTile
-        title="Literature review"
-        subtitle="Systematic synthesis aligned with the Streamlit review"
-        accent="teal"
-      >
-        <article className="literature-pro max-h-[520px] space-y-4 overflow-y-auto pr-2">
-          {LITERATURE_SECTIONS.map((sec) => (
-            <section key={sec.heading}>
-              <h2 className="literature-h2">{sec.heading}</h2>
-              {sec.paragraphs.map((p) => (
-                <p key={p.slice(0, 40)} className="literature-p">
-                  {p}
-                </p>
-              ))}
-            </section>
+      <VisualTile title="Official source links" subtitle="Websites used for coding and recommendations" accent="gold">
+        <div className="grid gap-2 md:grid-cols-2">
+          {SOURCE_LINKS.map((s) => (
+            <a
+              key={s.url}
+              href={s.url}
+              target="_blank"
+              rel="noreferrer"
+              className="literature-ref-card text-[12px] font-semibold text-[#1a2332] hover:text-[#118dff]"
+            >
+              {s.title}
+              <span className="mt-0.5 block font-normal text-[10px] text-[#5c6578]">{s.note}</span>
+            </a>
           ))}
-        </article>
+        </div>
       </VisualTile>
 
-      <VisualTile title="Key references in the dataset" subtitle={`${filteredRefs.length} sources`} accent="gold">
+      <VisualTile title="Key references in the dataset" subtitle={`${filteredRefs.length} sources`} accent="teal">
         <div className="relative mb-2">
           <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[#8a929e]" />
           <input
@@ -206,17 +152,23 @@ export function LiteraturePage() {
             className="literature-search w-full pl-8"
           />
         </div>
-        <div className="grid max-h-[280px] grid-cols-1 gap-2 overflow-y-auto pr-1 md:grid-cols-2">
-          {filteredRefs.length ? (
-            filteredRefs.map((item) => <RefCard key={item.title} reference={item} />)
-          ) : (
-            <p className="py-4 text-center text-[11px] text-[#8a929e]">No references match your search.</p>
-          )}
+        <div className="grid max-h-[240px] grid-cols-1 gap-2 overflow-y-auto pr-1 md:grid-cols-2">
+          {filteredRefs.map((item) => {
+            const badge =
+              REF_TYPE_STYLES[item.type] ?? "bg-slate-100 text-slate-600 border-slate-200";
+            return (
+              <article key={item.title} className="literature-ref-card">
+                <p className="text-[12px] font-semibold text-[#1a2332]">{item.title}</p>
+                <p className="mt-1 text-[11px] text-[#5c6578]">
+                  {item.author} · {item.year}{" "}
+                  <span className={`ml-1 rounded border px-1 py-0.5 text-[9px] font-bold ${badge}`}>
+                    {item.type}
+                  </span>
+                </p>
+              </article>
+            );
+          })}
         </div>
-        <p className="mt-2 flex items-center gap-1 text-[10px] text-[#8a929e]">
-          <GraduationCap className="h-3 w-3" />
-          Full bibliographic list (Adamson & Smith 2018 through Wu et al. 2021) is in the review text above.
-        </p>
       </VisualTile>
     </div>
   );

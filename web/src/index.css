@@ -463,6 +463,24 @@ body {
   font-family: "Segoe UI", system-ui, sans-serif;
 }
 
+.literature-report {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.literature-report .literature-h1 {
+  font-size: 1.55rem;
+  line-height: 1.3;
+}
+
+.literature-report .literature-p,
+.literature-report .literature-ul,
+.literature-report .literature-ol {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #334155;
+}
+
 .literature-h1 {
   font-size: 1.35rem;
   font-weight: 700;

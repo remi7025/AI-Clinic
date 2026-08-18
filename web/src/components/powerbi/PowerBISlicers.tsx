@@ -111,9 +111,7 @@ export function PowerBISlicers() {
       </a>
 
       <p className="px-1 text-center text-[9px] leading-relaxed text-[#a0a8b8]">
-        Supervisor: Dr. Anuradha Kar
-        <br />
-        FDA · EMA · WHO · OECD
+        Sources: FDA · EMA · WHO · OECD · IMDRF
       </p>
     </aside>
   );

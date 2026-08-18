@@ -33,8 +33,9 @@ export function PowerBIHeader() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="bg-gradient-to-r from-white via-white to-blue-200 bg-clip-text text-base font-bold tracking-tight text-transparent">
-                AI Healthcare Compliance Intelligence
+              <h1 className="max-w-xl bg-gradient-to-r from-white via-white to-blue-200 bg-clip-text text-[13px] font-bold leading-snug tracking-tight text-transparent sm:text-sm">
+                A literature review and interactive dashboard on AI for healthcare compliance and
+                regulations across countries
               </h1>
               <span className="flex items-center gap-1 rounded-full bg-emerald-500/20 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-emerald-300">
                 <span className="live-dot inline-block h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -42,7 +43,7 @@ export function PowerBIHeader() {
               </span>
             </div>
             <p className="mt-0.5 text-[11px] text-white/50">
-              Dr. Anuradha Kar · {filtered.length} countries · 7 compliance themes · Mar 2026
+              {filtered.length} countries · 7 compliance themes · FDA · EU AI Act · WHO · OECD
             </p>
           </div>
         </div>

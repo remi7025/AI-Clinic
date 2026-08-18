@@ -73,14 +73,6 @@ export function LiteraturePage() {
 
   return (
     <div className="flex h-full flex-col gap-3 overflow-y-auto p-3">
-      <div>
-        <h3 className="text-lg font-semibold text-[#1a2332]">Literature Review Summary</h3>
-        <p className="mt-1 text-[13px] leading-relaxed text-[#5c6578]">
-          This section presents key findings from the systematic literature review on AI healthcare
-          compliance and regulations.
-        </p>
-      </div>
-
       <div className="rounded-md border border-[#dde3ec] bg-white px-5 py-4 shadow-sm">
         <article className="literature-pro literature-report">
           <ReactMarkdown remarkPlugins={[remarkGfm]} components={MARKDOWN_COMPONENTS}>

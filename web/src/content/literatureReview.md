@@ -1,10 +1,4 @@
-# Literature Review: AI for Healthcare Compliance and Regulations Across Countries
-
-**Project:** A literature review and interactive dashboard on AI for healthcare compliance and regulations across countries
-
-**Date:** March 2026
-
----
+# AI for Healthcare Compliance and Regulations Across Countries
 
 ## Abstract
 

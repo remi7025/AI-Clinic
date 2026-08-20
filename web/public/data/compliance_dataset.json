@@ -39,7 +39,14 @@
       "ethical_framework": "No federal AI ethics law. NIST AI Risk Management Framework (2023) provides voluntary guidance. Executive Order on AI (2023) directs agencies to manage AI risks.",
       "post_market_surveillance": "Mandatory adverse event reporting (MedWatch). Real-world performance monitoring encouraged under TPLC.",
       "liability": "Product liability under state tort law. FDA clearance does not shield from liability. Evolving case law on AI-related malpractice.",
-      "key_legislations": ["HIPAA (1996)", "HITECH Act (2009)", "21st Century Cures Act (2016)", "FDA SaMD Action Plan (2021)", "NIST AI RMF (2023)", "Executive Order on AI (2023)"],
+      "key_legislations": [
+        "HIPAA (1996)",
+        "HITECH Act (2009)",
+        "21st Century Cures Act (2016)",
+        "FDA SaMD Action Plan (2021)",
+        "NIST AI RMF (2023)",
+        "Executive Order on AI (2023)"
+      ],
       "maturity_level": "Advanced",
       "year_first_ai_regulation": 2017,
       "num_ai_devices_approved": 950,
@@ -70,7 +77,14 @@
       "ethical_framework": "EU AI Act embeds ethical principles: human oversight, non-discrimination, robustness. Ethics Guidelines for Trustworthy AI (HLEG, 2019). Fundamental Rights Impact Assessment required.",
       "post_market_surveillance": "Mandatory under MDR and EU AI Act. Post-market monitoring plans, serious incident reporting, periodic safety update reports.",
       "liability": "EU AI Liability Directive (proposed) creates presumption of causality for AI harm. Product Liability Directive revision to cover software/AI.",
-      "key_legislations": ["GDPR (2018)", "MDR (2021)", "IVDR (2022)", "EU AI Act (2024)", "European Health Data Space (proposed)", "AI Liability Directive (proposed)"],
+      "key_legislations": [
+        "GDPR (2018)",
+        "MDR (2021)",
+        "IVDR (2022)",
+        "EU AI Act (2024)",
+        "European Health Data Space (proposed)",
+        "AI Liability Directive (proposed)"
+      ],
       "maturity_level": "Advanced",
       "year_first_ai_regulation": 2018,
       "num_ai_devices_approved": 600,
@@ -101,7 +115,13 @@
       "ethical_framework": "Five cross-sector AI principles: safety, transparency, fairness, accountability, contestability. AI Safety Institute established (2023). No binding AI-specific ethics law.",
       "post_market_surveillance": "MHRA vigilance and post-market surveillance obligations. Yellow Card scheme for adverse incident reporting.",
       "liability": "Common law negligence and product liability. Government exploring AI-specific liability reforms.",
-      "key_legislations": ["UK GDPR (2018)", "Data Protection Act (2018)", "Pro-innovation AI Framework (2023)", "NICE Evidence Standards", "MHRA SaMD Guidance"],
+      "key_legislations": [
+        "UK GDPR (2018)",
+        "Data Protection Act (2018)",
+        "Pro-innovation AI Framework (2023)",
+        "NICE Evidence Standards",
+        "MHRA SaMD Guidance"
+      ],
       "maturity_level": "Advanced",
       "year_first_ai_regulation": 2018,
       "num_ai_devices_approved": 200,
@@ -132,7 +152,14 @@
       "ethical_framework": "New Generation AI Ethics Code (2021). National AI governance principles emphasize harmony, fairness, and responsibility. State Council AI development plans integrate ethical guardrails.",
       "post_market_surveillance": "Mandatory adverse event reporting to NMPA. Periodic re-evaluation of registered devices. Quality management system audits.",
       "liability": "Civil Code provisions on product liability. Evolving jurisprudence on AI-caused harm. Algorithmic accountability provisions in algorithm regulations.",
-      "key_legislations": ["PIPL (2021)", "Data Security Law (2021)", "Algorithm Recommendation Regulations (2022)", "Deep Synthesis Regulations (2023)", "Generative AI Measures (2023)", "NMPA AI Device Guidance (2021)"],
+      "key_legislations": [
+        "PIPL (2021)",
+        "Data Security Law (2021)",
+        "Algorithm Recommendation Regulations (2022)",
+        "Deep Synthesis Regulations (2023)",
+        "Generative AI Measures (2023)",
+        "NMPA AI Device Guidance (2021)"
+      ],
       "maturity_level": "Advanced",
       "year_first_ai_regulation": 2021,
       "num_ai_devices_approved": 300,
@@ -163,7 +190,13 @@
       "ethical_framework": "NITI Aayog Responsible AI principles (fairness, accountability, transparency, privacy, safety). No binding ethics law for AI. ICMR National Ethical Guidelines for Biomedical and Health Research.",
       "post_market_surveillance": "Post-market surveillance requirements under Medical Devices Rules. Materiovigilance Programme of India (MvPI) for adverse event reporting.",
       "liability": "Consumer Protection Act 2019 covers product defects. IT Act provisions for data breaches. No AI-specific liability framework.",
-      "key_legislations": ["Medical Devices Rules (2017)", "DPDP Act (2023)", "IT Act (2000, amended)", "Consumer Protection Act (2019)", "NITI Aayog AI Guidelines (2021)"],
+      "key_legislations": [
+        "Medical Devices Rules (2017)",
+        "DPDP Act (2023)",
+        "IT Act (2000, amended)",
+        "Consumer Protection Act (2019)",
+        "NITI Aayog AI Guidelines (2021)"
+      ],
       "maturity_level": "Developing",
       "year_first_ai_regulation": 2023,
       "num_ai_devices_approved": 30,
@@ -194,7 +227,13 @@
       "ethical_framework": "Human-centric AI principles adopted by government (2019). Council for Social Principles of Human-Centric AI. No binding AI ethics legislation.",
       "post_market_surveillance": "PMDA safety monitoring and re-examination. Good Vigilance Practice (GVP). Post-market clinical studies as needed.",
       "liability": "Product Liability Act covers defective products. AI-specific liability under discussion.",
-      "key_legislations": ["PMD Act (2014, amended)", "APPI (2003, amended 2022)", "Social Principles of Human-Centric AI (2019)", "Next Gen Medical Infrastructure Act (2018)", "AI Guidelines for Business (2024)"],
+      "key_legislations": [
+        "PMD Act (2014, amended)",
+        "APPI (2003, amended 2022)",
+        "Social Principles of Human-Centric AI (2019)",
+        "Next Gen Medical Infrastructure Act (2018)",
+        "AI Guidelines for Business (2024)"
+      ],
       "maturity_level": "Advanced",
       "year_first_ai_regulation": 2019,
       "num_ai_devices_approved": 150,
@@ -225,7 +264,13 @@
       "ethical_framework": "Directive on Automated Decision-Making (2019) for federal government. AIDA (proposed) includes measures against biased AI. Pan-Canadian AI Strategy promotes responsible AI.",
       "post_market_surveillance": "Mandatory problem reporting. Post-market surveillance plans. Canada Vigilance Program.",
       "liability": "Common law negligence and product liability. AIDA (proposed) would introduce penalties for reckless/harmful AI deployment.",
-      "key_legislations": ["Medical Devices Regulations", "PIPEDA (2000)", "Bill C-27/AIDA (proposed)", "Directive on Automated Decision-Making (2019)", "GMLP Principles (2021)"],
+      "key_legislations": [
+        "Medical Devices Regulations",
+        "PIPEDA (2000)",
+        "Bill C-27/AIDA (proposed)",
+        "Directive on Automated Decision-Making (2019)",
+        "GMLP Principles (2021)"
+      ],
       "maturity_level": "Advanced",
       "year_first_ai_regulation": 2019,
       "num_ai_devices_approved": 120,
@@ -256,7 +301,13 @@
       "ethical_framework": "Eight AI Ethics Principles (2019): human-centric, fair, transparent, contestable, accountable, reliable, safe, privacy-protected. Voluntary adoption. National AI Centre provides guidance.",
       "post_market_surveillance": "TGA post-market review and vigilance. Adverse event reporting mandatory. Systematic review of registered products.",
       "liability": "Australian Consumer Law product liability. Professional negligence standards. No AI-specific liability law.",
-      "key_legislations": ["Therapeutic Goods Act (1989)", "Privacy Act (1988, amended)", "AI Ethics Principles (2019)", "My Health Records Act (2012)", "Voluntary AI Safety Standard (2024)"],
+      "key_legislations": [
+        "Therapeutic Goods Act (1989)",
+        "Privacy Act (1988, amended)",
+        "AI Ethics Principles (2019)",
+        "My Health Records Act (2012)",
+        "Voluntary AI Safety Standard (2024)"
+      ],
       "maturity_level": "Moderate",
       "year_first_ai_regulation": 2019,
       "num_ai_devices_approved": 80,
@@ -287,7 +338,13 @@
       "ethical_framework": "National AI Ethics Standards (2020). AI Ethics Guidelines emphasize human dignity, public good, and technical soundness. No binding legislation yet.",
       "post_market_surveillance": "MFDS post-market surveillance. Adverse event reporting system. Quality management requirements.",
       "liability": "Product Liability Act. Civil liability framework. AI-specific liability considerations under development.",
-      "key_legislations": ["Medical Devices Act", "PIPA (2011, amended 2023)", "National AI Strategy (2019)", "AI Ethics Standards (2020)", "AI Framework Act (proposed)"],
+      "key_legislations": [
+        "Medical Devices Act",
+        "PIPA (2011, amended 2023)",
+        "National AI Strategy (2019)",
+        "AI Ethics Standards (2020)",
+        "AI Framework Act (proposed)"
+      ],
       "maturity_level": "Advanced",
       "year_first_ai_regulation": 2019,
       "num_ai_devices_approved": 200,
@@ -318,7 +375,12 @@
       "ethical_framework": "Model AI Governance Framework emphasizes human-centric, explainable, fair AI. Advisory Council on Ethical Use of AI and Data. Smart Nation initiative integrates responsible AI.",
       "post_market_surveillance": "HSA post-market surveillance. Adverse event reporting. Periodic review of registered products.",
       "liability": "Common law product liability. Consumer Protection (Fair Trading) Act. No AI-specific liability provisions.",
-      "key_legislations": ["Health Products Act", "PDPA (2012, amended 2021)", "Model AI Governance Framework (2019)", "AI Verify (2022)"],
+      "key_legislations": [
+        "Health Products Act",
+        "PDPA (2012, amended 2021)",
+        "Model AI Governance Framework (2019)",
+        "AI Verify (2022)"
+      ],
       "maturity_level": "Advanced",
       "year_first_ai_regulation": 2019,
       "num_ai_devices_approved": 60,
@@ -349,7 +411,12 @@
       "ethical_framework": "AI Bill (proposed) incorporates ethical principles: human oversight, non-discrimination, transparency. Brazilian AI Strategy (2021) promotes responsible development.",
       "post_market_surveillance": "ANVISA post-market surveillance. Tecnovigilância (technovigilance) system. Mandatory adverse event reporting.",
       "liability": "Consumer Defense Code. Civil liability framework. AI Bill (proposed) would establish risk-based liability for AI.",
-      "key_legislations": ["LGPD (2020)", "AI Bill PL 2338/2023 (proposed)", "Brazilian AI Strategy (2021)", "ANVISA Medical Device Regulations"],
+      "key_legislations": [
+        "LGPD (2020)",
+        "AI Bill PL 2338/2023 (proposed)",
+        "Brazilian AI Strategy (2021)",
+        "ANVISA Medical Device Regulations"
+      ],
       "maturity_level": "Developing",
       "year_first_ai_regulation": 2020,
       "num_ai_devices_approved": 40,
@@ -380,7 +447,12 @@
       "ethical_framework": "SDAIA AI Ethics Principles (2023): fairness, transparency, accountability, privacy, security, human-centricity. Vision 2030 AI integration goals.",
       "post_market_surveillance": "SFDA post-market surveillance requirements. Adverse event reporting. Medical device vigilance system.",
       "liability": "Civil liability framework. AI-specific liability not yet addressed. Consumer protection provisions apply.",
-      "key_legislations": ["PDPL (2023)", "SFDA Medical Device Regulations", "SDAIA AI Ethics Principles (2023)", "Vision 2030 AI Strategy"],
+      "key_legislations": [
+        "PDPL (2023)",
+        "SFDA Medical Device Regulations",
+        "SDAIA AI Ethics Principles (2023)",
+        "Vision 2030 AI Strategy"
+      ],
       "maturity_level": "Emerging",
       "year_first_ai_regulation": 2023,
       "num_ai_devices_approved": 25,
@@ -411,7 +483,12 @@
       "ethical_framework": "Presidential Commission on 4IR recommendations. No binding AI ethics framework. Research ethics committees govern clinical AI research. Ubuntu philosophy informing ethical discourse.",
       "post_market_surveillance": "SAHPRA post-market surveillance developing. Adverse event reporting being strengthened. Resource limitations affect monitoring capacity.",
       "liability": "Consumer Protection Act. Common law product liability. No AI-specific liability provisions.",
-      "key_legislations": ["POPIA (2021)", "Medicines and Related Substances Act", "4IR Presidential Commission Report (2020)", "AI Policy Framework (draft)"],
+      "key_legislations": [
+        "POPIA (2021)",
+        "Medicines and Related Substances Act",
+        "4IR Presidential Commission Report (2020)",
+        "AI Policy Framework (draft)"
+      ],
       "maturity_level": "Emerging",
       "year_first_ai_regulation": 2021,
       "num_ai_devices_approved": 10,
@@ -442,7 +519,12 @@
       "ethical_framework": "No binding AI ethics framework. Academic and civil society discourse on AI ethics. NITDA strategic framework includes responsible AI elements.",
       "post_market_surveillance": "NAFDAC pharmacovigilance. Limited medical device post-market monitoring. Resource constraints affect surveillance capacity.",
       "liability": "Consumer protection laws. Federal Competition and Consumer Protection Act. No AI-specific liability.",
-      "key_legislations": ["NDPA (2023)", "NAFDAC Act", "National Digital Economy Policy (2020)", "NITDA Act"],
+      "key_legislations": [
+        "NDPA (2023)",
+        "NAFDAC Act",
+        "National Digital Economy Policy (2020)",
+        "NITDA Act"
+      ],
       "maturity_level": "Early",
       "year_first_ai_regulation": 2023,
       "num_ai_devices_approved": 5,
@@ -473,7 +555,12 @@
       "ethical_framework": "Blockchain and AI Taskforce ethical recommendations. No binding AI ethics framework. KEMRI Ethics Review Committee for health research.",
       "post_market_surveillance": "PPB pharmacovigilance. Limited medical device post-market monitoring. Resource constraints.",
       "liability": "Consumer Protection Act. Tort law framework. No AI-specific liability provisions.",
-      "key_legislations": ["Data Protection Act (2019)", "PPB Regulations", "Blockchain and AI Taskforce Report (2019)", "Kenya Health Policy 2014-2030"],
+      "key_legislations": [
+        "Data Protection Act (2019)",
+        "PPB Regulations",
+        "Blockchain and AI Taskforce Report (2019)",
+        "Kenya Health Policy 2014-2030"
+      ],
       "maturity_level": "Early",
       "year_first_ai_regulation": 2019,
       "num_ai_devices_approved": 3,
@@ -504,7 +591,12 @@
       "ethical_framework": "AI Ethics Framework addresses healthcare applications. Innovation Authority promotes responsible AI. Active ethics research community.",
       "post_market_surveillance": "MOH post-market surveillance. Adverse event reporting. Device vigilance system.",
       "liability": "Tort liability. Patient Rights Law. No AI-specific liability provisions. Active legal scholarship on the topic.",
-      "key_legislations": ["Privacy Protection Law (1981)", "Pharmacists' Ordinance", "AI Policy Framework (2022)", "National AI Program"],
+      "key_legislations": [
+        "Privacy Protection Law (1981)",
+        "Pharmacists' Ordinance",
+        "AI Policy Framework (2022)",
+        "National AI Program"
+      ],
       "maturity_level": "Advanced",
       "year_first_ai_regulation": 2022,
       "num_ai_devices_approved": 100,
@@ -535,7 +627,12 @@
       "ethical_framework": "Federal Ethics Committee on Non-Human Biotechnology. Swiss National Science Foundation AI ethics research. No binding AI ethics law.",
       "post_market_surveillance": "Swissmedic vigilance. Aligned with EU post-market surveillance requirements. Adverse event reporting.",
       "liability": "Product Liability Act. Code of Obligations. No AI-specific liability provisions.",
-      "key_legislations": ["nFADP (2023)", "Medical Devices Ordinance (MedDO)", "Federal Council AI Guidelines", "Bilateral Agreements with EU"],
+      "key_legislations": [
+        "nFADP (2023)",
+        "Medical Devices Ordinance (MedDO)",
+        "Federal Council AI Guidelines",
+        "Bilateral Agreements with EU"
+      ],
       "maturity_level": "Advanced",
       "year_first_ai_regulation": 2023,
       "num_ai_devices_approved": 90,
@@ -566,7 +663,12 @@
       "ethical_framework": "National AI Strategy ethical guidelines. UAE AI Ethics Board. Oxford-UAE AI research partnership on responsible AI.",
       "post_market_surveillance": "MOH device vigilance. Adverse event reporting. Quality management requirements.",
       "liability": "Civil Code liability provisions. Consumer Protection Law. No AI-specific liability framework.",
-      "key_legislations": ["Federal Data Protection Law (2021)", "National AI Strategy 2031", "MOH Medical Device Regulations", "Dubai Health Data Policy"],
+      "key_legislations": [
+        "Federal Data Protection Law (2021)",
+        "National AI Strategy 2031",
+        "MOH Medical Device Regulations",
+        "Dubai Health Data Policy"
+      ],
       "maturity_level": "Emerging",
       "year_first_ai_regulation": 2017,
       "num_ai_devices_approved": 35,
@@ -597,7 +699,14 @@
       "ethical_framework": "Data Ethics Commission recommendations (2019). AI Observatory at BMAS. EU AI Act ethical framework. Strong academic ethics research tradition.",
       "post_market_surveillance": "EU MDR post-market surveillance. BfArM device vigilance. DiGA requires ongoing evidence generation.",
       "liability": "Product Liability Act. EU AI Liability Directive (when enacted). Medical malpractice law.",
-      "key_legislations": ["GDPR/BDSG", "EU MDR", "DiGA Regulation (2020)", "PDSG (2021)", "National AI Strategy (2018/2020)", "Health Data Use Act (2024)"],
+      "key_legislations": [
+        "GDPR/BDSG",
+        "EU MDR",
+        "DiGA Regulation (2020)",
+        "PDSG (2021)",
+        "National AI Strategy (2018/2020)",
+        "Health Data Use Act (2024)"
+      ],
       "maturity_level": "Advanced",
       "year_first_ai_regulation": 2018,
       "num_ai_devices_approved": 180,
@@ -628,7 +737,12 @@
       "ethical_framework": "National AI Ethics Guidelines. Thailand 4.0 policy includes responsible technology principles. No binding AI ethics law.",
       "post_market_surveillance": "Thai FDA post-market surveillance. Adverse event reporting. Resource-constrained monitoring.",
       "liability": "Consumer Protection Act. Product Liability Act. No AI-specific liability.",
-      "key_legislations": ["PDPA (2022)", "Medical Device Act (2008)", "National AI Strategy (2022-2027)", "Thailand 4.0 Policy"],
+      "key_legislations": [
+        "PDPA (2022)",
+        "Medical Device Act (2008)",
+        "National AI Strategy (2022-2027)",
+        "Thailand 4.0 Policy"
+      ],
       "maturity_level": "Developing",
       "year_first_ai_regulation": 2022,
       "num_ai_devices_approved": 15,
@@ -693,8 +807,7 @@
       "description": "Frameworks for managing continuously learning AI systems (e.g., FDA Predetermined Change Control Plan).",
       "adoption_level": "Low",
       "year_emerged": 2021
-    }
-    ,
+    },
     {
       "trend": "AI Adoption in Radiology and Digital Pathology Workflows",
       "description": "AI image analysis is increasingly deployed for triage and decision support in radiology and pathology, driving demand for clinical validation, transparency for clinicians, and post-deployment monitoring.",
@@ -746,22 +859,94 @@
       "type": "Legislation"
     },
     {
+      "title": "EU Medical Device Regulation (MDR) 2017/745",
+      "author": "European Parliament and Council",
+      "year": 2017,
+      "type": "Legislation"
+    },
+    {
+      "title": "General Data Protection Regulation (GDPR)",
+      "author": "European Parliament and Council",
+      "year": 2016,
+      "type": "Legislation"
+    },
+    {
       "title": "Good Machine Learning Practice for Medical Device Development",
       "author": "FDA, Health Canada, MHRA",
       "year": 2021,
       "type": "Guiding Principles"
     },
     {
-      "title": "Regulatory frameworks for AI in healthcare: A comparative analysis",
-      "author": "Various (systematic review)",
-      "year": 2023,
-      "type": "Literature Review"
-    },
-    {
-      "title": "IMDRF Software as a Medical Device: Possible Framework for Risk Categorization and Corresponding Considerations",
+      "title": "IMDRF Software as a Medical Device: Risk Categorization Framework",
       "author": "IMDRF",
       "year": 2014,
       "type": "Framework"
+    },
+    {
+      "title": "NIST AI Risk Management Framework (AI RMF 1.0)",
+      "author": "NIST",
+      "year": 2023,
+      "type": "Framework"
+    },
+    {
+      "title": "High-Performance Medicine: The Convergence of Human and Artificial Intelligence",
+      "author": "Topol, E. J.",
+      "year": 2019,
+      "type": "Research"
+    },
+    {
+      "title": "AI in Health and Medicine",
+      "author": "Rajpurkar et al.",
+      "year": 2022,
+      "type": "Research"
+    },
+    {
+      "title": "Approval of AI/ML Medical Devices in the USA and Europe (2015-20)",
+      "author": "Muehlematter et al.",
+      "year": 2021,
+      "type": "Research"
+    },
+    {
+      "title": "How Medical AI Devices Are Evaluated: Limitations from FDA Approvals",
+      "author": "Wu et al.",
+      "year": 2021,
+      "type": "Research"
+    },
+    {
+      "title": "Dissecting Racial Bias in an Algorithm Used to Manage Population Health",
+      "author": "Obermeyer et al.",
+      "year": 2019,
+      "type": "Research"
+    },
+    {
+      "title": "The Global Landscape of AI Ethics Guidelines",
+      "author": "Jobin, Ienca & Vayena",
+      "year": 2019,
+      "type": "Research"
+    },
+    {
+      "title": "Algorithms on Regulatory Lockdown in Medicine",
+      "author": "Babic et al.",
+      "year": 2019,
+      "type": "Research"
+    },
+    {
+      "title": "Potential Liability for Physicians Using Artificial Intelligence",
+      "author": "Price, Gerke & Cohen",
+      "year": 2019,
+      "type": "Research"
+    },
+    {
+      "title": "The False Hope of Current Approaches to Explainable AI in Health Care",
+      "author": "Ghassemi et al.",
+      "year": 2021,
+      "type": "Research"
+    },
+    {
+      "title": "Ethical and Legal Challenges of Artificial Intelligence-Driven Healthcare",
+      "author": "Gerke, Minssen & Cohen",
+      "year": 2020,
+      "type": "Research"
     }
   ]
 }

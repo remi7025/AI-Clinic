@@ -4,6 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import json
+import re
 from pathlib import Path
 
 # ---------------------------------------------------------------------------
@@ -21,11 +22,27 @@ st.set_page_config(
 # ---------------------------------------------------------------------------
 st.markdown("""
 <style>
+    /* Page background + typography */
+    .stApp {
+        background: linear-gradient(180deg, #f6f8ff 0%, #ffffff 35%, #f8fafc 100%);
+    }
+    html, body, [class*="stText"] {
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
     .main-header {
         font-size: 2.2rem;
         font-weight: 700;
         color: #1B3A5C;
         margin-bottom: 0.2rem;
+    }
+    .exec-snapshot {
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        border-radius: 14px;
+        padding: 14px 16px;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+        margin: 10px 0 16px 0;
     }
     .sub-header {
         font-size: 1.1rem;
@@ -198,6 +215,15 @@ filtered_df = df[
     (df["Region"].isin(selected_regions)) & (df["Maturity"].isin(maturity_filter))
 ].copy()
 
+# Optional export of exactly what you're looking at
+st.sidebar.download_button(
+    label="Download filtered data (CSV)",
+    data=filtered_df.to_csv(index=False).encode("utf-8"),
+    file_name="filtered_compliance_dataset.csv",
+    mime="text/csv",
+    use_container_width=True,
+)
+
 # Reverse-map selected theme labels to score columns
 theme_label_to_col = {v: k for k, v in THEME_LABELS.items()}
 selected_score_cols = [theme_label_to_col[t] for t in selected_themes]
@@ -226,14 +252,88 @@ with col4:
     st.metric("Avg Compliance Score", f"{avg_score:.1f}/10")
 
 # ---------------------------------------------------------------------------
+# Executive snapshot (clean, professional summary)
+# ---------------------------------------------------------------------------
+st.markdown('<div class="exec-snapshot">', unsafe_allow_html=True)
+st.markdown("### Executive Snapshot")
+
+if selected_score_cols:
+    overall_scores = filtered_df[selected_score_cols].mean(axis=1)
+    best_idx = overall_scores.idxmax()
+    worst_idx = overall_scores.idxmin()
+
+    best_country = filtered_df.loc[best_idx, "Country"]
+    worst_country = filtered_df.loc[worst_idx, "Country"]
+    best_score = float(overall_scores.loc[best_idx])
+    worst_score = float(overall_scores.loc[worst_idx])
+
+    gap_rows = []
+    for col in selected_score_cols:
+        max_val = float(filtered_df[col].max())
+        min_val = float(filtered_df[col].min())
+        gap = max_val - min_val
+        leader_country = filtered_df.loc[filtered_df[col].idxmax(), "Country"]
+        laggard_country = filtered_df.loc[filtered_df[col].idxmin(), "Country"]
+        gap_rows.append((col, gap, leader_country, laggard_country))
+
+    # Theme with the biggest spread among filtered countries
+    gap_rows.sort(key=lambda x: x[1], reverse=True)
+    top_gap_col, top_gap, leader_country, _ = gap_rows[0]
+    top_gap_theme = THEME_LABELS[top_gap_col]
+
+    sx1, sx2, sx3 = st.columns(3)
+    with sx1:
+        st.metric("Best overall (selected themes)", best_country, f"{best_score:.1f}/10")
+    with sx2:
+        st.metric("Laggard overall (selected themes)", worst_country, f"{worst_score:.1f}/10")
+    with sx3:
+        st.metric(
+            "Largest theme gap",
+            top_gap_theme,
+            f"{top_gap:.1f} gap (Leader: {leader_country})",
+        )
+
+    # Visual: average scores per selected theme
+    avg_theme = filtered_df[selected_score_cols].mean().to_dict()
+    avg_theme_rows = [
+        {"Theme": THEME_LABELS[col], "Avg Score": float(score)}
+        for col, score in avg_theme.items()
+    ]
+    avg_theme_df = pd.DataFrame(avg_theme_rows).sort_values("Avg Score", ascending=False)
+
+    fig_avg = px.bar(
+        avg_theme_df,
+        x="Avg Score",
+        y="Theme",
+        orientation="h",
+        color="Theme",
+        color_discrete_map=THEME_COLORS,
+        text="Avg Score",
+        labels={"Avg Score": "Average score (1-10)", "Theme": "Theme"},
+    )
+    fig_avg.update_traces(textposition="outside")
+    fig_avg.update_layout(
+        height=220,
+        margin=dict(l=0, r=0, t=10, b=0),
+        showlegend=False,
+        xaxis=dict(range=[0, 10]),
+    )
+    st.plotly_chart(fig_avg, use_container_width=True)
+else:
+    st.info("Select at least one theme to see the executive snapshot summary.")
+
+st.markdown("</div>", unsafe_allow_html=True)
+
+# ---------------------------------------------------------------------------
 # Tabs
 # ---------------------------------------------------------------------------
-tab_map, tab_compare, tab_themes, tab_trends, tab_details, tab_review = st.tabs([
+tab_map, tab_compare, tab_themes, tab_trends, tab_details, tab_usecases, tab_review = st.tabs([
     "World Map",
     "Country Comparison",
     "Theme Analysis",
     "Global Trends",
     "Country Details",
+    "AI Use Cases & Trends",
     "Literature Review",
 ])
 
@@ -609,25 +709,277 @@ with tab_details:
         st.write(row["Notable Developments"])
 
 
-# ===================== TAB 6: LITERATURE REVIEW =====================
-with tab_review:
-    st.subheader("Literature Review Summary")
+# ===================== TAB 6: AI USE CASES & TRENDS =====================
+with tab_usecases:
+    st.subheader("AI Use Cases, Clinical Deployment, and Current Trends")
     st.markdown(
-        "This section presents key findings from the systematic literature review on "
-        "AI healthcare compliance and regulations."
+        "Your dataset includes 7 compliance themes scored from 1–10. In this tab, "
+        "those theme scores are converted into a *derived* \"use-case readiness\" score "
+        "for each country, to help explain how regulations and governance affect real AI "
+        "workflows (radiology, pathology, genomics, drug discovery, and public-health/hospital deployment)."
     )
+
+    use_case_weights = {
+        "Radiology / Imaging Diagnostics": {
+            "score_data_privacy": 0.20,
+            "score_clinical_validation": 0.35,
+            "score_approval_process": 0.25,
+            "score_transparency": 0.10,
+            "score_ethics": 0.05,
+            "score_post_market": 0.03,
+            "score_liability": 0.02,
+        },
+        "Pathology / Digital Pathology": {
+            "score_data_privacy": 0.20,
+            "score_clinical_validation": 0.38,
+            "score_approval_process": 0.22,
+            "score_transparency": 0.10,
+            "score_ethics": 0.05,
+            "score_post_market": 0.03,
+            "score_liability": 0.02,
+        },
+        "Genomic Analysis / Precision Medicine": {
+            "score_data_privacy": 0.25,
+            "score_clinical_validation": 0.30,
+            "score_approval_process": 0.20,
+            "score_transparency": 0.10,
+            "score_ethics": 0.10,
+            "score_post_market": 0.03,
+            "score_liability": 0.02,
+        },
+        "Drug Discovery / Development Support": {
+            "score_data_privacy": 0.15,
+            "score_clinical_validation": 0.25,
+            "score_approval_process": 0.35,
+            "score_transparency": 0.10,
+            "score_ethics": 0.10,
+            "score_post_market": 0.03,
+            "score_liability": 0.02,
+        },
+    }
+
+    if not selected_score_cols:
+        st.info("Select at least one theme in the sidebar to compute use-case readiness.")
+    else:
+        readiness_scores = {}
+        for uc, weights in use_case_weights.items():
+            weights_selected = {col: w for col, w in weights.items() if col in selected_score_cols}
+            w_sum = sum(weights_selected.values())
+            if w_sum <= 0:
+                readiness_scores[uc] = pd.Series([0] * len(filtered_df), index=filtered_df.index)
+                continue
+
+            weighted_sum = 0
+            for col, w in weights_selected.items():
+                weighted_sum = weighted_sum + filtered_df[col] * w
+            readiness_scores[uc] = (weighted_sum / w_sum).round(2)
+
+        heat_df = pd.DataFrame(
+            {uc: readiness_scores[uc].values for uc in use_case_weights.keys()},
+            index=filtered_df["Country"].values,
+        )
+
+        fig_heat = px.imshow(
+            heat_df,
+            aspect="auto",
+            zmin=0,
+            zmax=10,
+            color_continuous_scale="RdYlGn",
+            labels={"x": "Use Case", "y": "Country", "color": "Readiness (1-10)"},
+        )
+        fig_heat.update_layout(height=max(420, len(filtered_df) * 24), margin=dict(l=10, r=10, t=30, b=10))
+        st.plotly_chart(fig_heat, use_container_width=True)
+
+        st.markdown("---")
+
+        focus_use_case = st.selectbox(
+            "Choose a use case to view country ranking",
+            list(use_case_weights.keys()),
+            key="focus_use_case",
+        )
+        ranking_df = filtered_df[["Country", "Region"]].copy()
+        ranking_df["Readiness"] = readiness_scores[focus_use_case].values
+        ranking_df = ranking_df.sort_values("Readiness", ascending=False)
+
+        fig_rank = px.bar(
+            ranking_df,
+            x="Readiness",
+            y="Country",
+            orientation="h",
+            color="Region",
+            text="Readiness",
+        )
+        fig_rank.update_traces(textposition="outside", cliponaxis=False)
+        fig_rank.update_layout(
+            height=min(520, 80 + len(ranking_df) * 24),
+            margin=dict(l=0, r=0, t=20, b=0),
+            xaxis=dict(range=[0, 10]),
+            showlegend=True,
+        )
+        st.plotly_chart(fig_rank, use_container_width=True)
+
+        st.dataframe(ranking_df.head(10), use_container_width=True, height=320)
+
+    st.markdown("---")
+    st.subheader("Current Trends in AI Healthcare Products")
+
+    trends_df = pd.DataFrame(global_trends)
+    if trends_df.empty:
+        st.info("No trend data available.")
+    else:
+        fig_trends = px.scatter(
+            trends_df,
+            x="year_emerged",
+            y="trend",
+            color="adoption_level",
+            hover_data={"description": True, "year_emerged": True, "adoption_level": True, "trend": False},
+        )
+        fig_trends.update_layout(height=360, margin=dict(l=10, r=10, t=30, b=10))
+        st.plotly_chart(fig_trends, use_container_width=True)
+
+        # Card-style summary
+        adoption_colors = {"High": "#22c55e", "Medium": "#eab308", "Low": "#ef4444"}
+        for i in range(0, len(global_trends), 2):
+            cols = st.columns(2)
+            for j, col in enumerate(cols):
+                idx = i + j
+                if idx >= len(global_trends):
+                    continue
+                trend = global_trends[idx]
+                adoption = trend.get("adoption_level", "Unknown")
+                badge_color = adoption_colors.get(adoption, "#6b7280")
+                with col:
+                    st.markdown(
+                        f"""
+                        <div style="border:1px solid #e2e8f0; border-radius:12px; padding:1.1rem; margin-bottom:1rem; background:#fafbff;">
+                            <h4 style="margin:0 0 0.5rem 0; color:#1e293b;">{trend['trend']}</h4>
+                            <p style="color:#475569; font-size:0.9rem; margin:0 0 0.5rem 0;">{trend['description']}</p>
+                            <span style="background:{badge_color}; color:white; padding:0.2rem 0.6rem; border-radius:12px; font-size:0.75rem; font-weight:600;">
+                                {adoption} Adoption
+                            </span>
+                            <span style="color:#94a3b8; font-size:0.8rem; margin-left:0.5rem;">Since {trend['year_emerged']}</span>
+                        </div>
+                        """,
+                        unsafe_allow_html=True,
+                    )
+
+# ===================== TAB 7: LITERATURE REVIEW =====================
+with tab_review:
+    st.subheader("AI for Healthcare Compliance and Regulations Across Countries")
 
     review_path = Path(__file__).parent / "literature_review.md"
     if review_path.exists():
         review_text = review_path.read_text(encoding="utf-8")
+
+        # Visual summaries so users can "scan" the report quickly.
+        main_sections = re.findall(r"^##\\s+(.+)$", review_text, flags=re.M)
+        main_sections = [s for s in main_sections if s.strip() and not s.strip().startswith("## ")]
+
+        st.markdown("### Key Takeaways (Visual Summary)")
+        cards = [
+            ("Radiology + Pathology", "AI-assisted diagnostics in clinical practice require strong clinical validation, workflow integration, and bias monitoring."),
+            ("Genomics + Precision Medicine", "Privacy, data governance, and representative datasets matter due to sensitive health data and cross-border constraints."),
+            ("Drug Discovery / Development", "Evidence quality and regulatory approval pathways shape how AI supports trials, endpoints, and safety documentation."),
+            ("Clinical / Hospital Deployment", "Lifecycle governance (post-market monitoring) helps manage drift and performance changes over time."),
+            ("Public Health", "Governance and accountability are essential when AI supports surveillance and decisions that affect populations."),
+            ("Current Trend: Generative AI", "Foundation models introduce new risk questions beyond traditional SaMD assumptions."),
+        ]
+
+        for i in range(0, len(cards), 2):
+            c1, c2 = st.columns(2)
+            with c1:
+                st.markdown(
+                    f"""
+                    <div style="border:1px solid rgba(148,163,184,0.35); border-radius:14px; padding:12px 14px; background:#ffffff;">
+                      <div style="font-weight:700; color:#1B3A5C; margin-bottom:0.3rem;">{cards[i][0]}</div>
+                      <div style="color:#475569; font-size:0.95rem;">{cards[i][1]}</div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                )
+            if i + 1 < len(cards):
+                with c2:
+                    st.markdown(
+                        f"""
+                        <div style="border:1px solid rgba(148,163,184,0.35); border-radius:14px; padding:12px 14px; background:#ffffff;">
+                          <div style="font-weight:700; color:#1B3A5C; margin-bottom:0.3rem;">{cards[i+1][0]}</div>
+                          <div style="color:#475569; font-size:0.95rem;">{cards[i+1][1]}</div>
+                        </div>
+                        """,
+                        unsafe_allow_html=True,
+                    )
+
+        st.markdown("---")
+        st.markdown("### Topic Frequency (From the Literature Review Text)")
+
+        review_lower = review_text.lower()
+        keyword_groups = [
+            ("Radiology", ["radiology", "radiograph", "radiographs", "x-ray", "xray", "chest radiographs"]),
+            ("Pathology", ["pathology", "digital pathology", "histopathology"]),
+            ("Genomics", ["genomics", "genomic"]),
+            ("Drug Discovery / Development", ["drug discovery", "drug development", "clinical trials"]),
+            ("Hospitals / Clinics", ["hospital", "clinics", "clinic", "clinical setting", "hospitals"]),
+            ("Public Health", ["public health", "surveillance", "outbreak"]),
+            ("Generative AI / Foundation Models", ["generative", "foundation model", "foundation models"]),
+        ]
+
+        def count_phrase(text: str, phrase: str) -> int:
+            phrase = phrase.lower().strip()
+            if not phrase:
+                return 0
+            if " " in phrase:
+                return text.count(phrase)
+            return len(re.findall(rf"\\b{re.escape(phrase)}\\b", text))
+
+        keyword_counts = []
+        for label, phrases in keyword_groups:
+            total = 0
+            for p in phrases:
+                total += count_phrase(review_lower, p)
+            keyword_counts.append({"Topic": label, "Mentions": total})
+
+        kw_df = pd.DataFrame(keyword_counts).sort_values("Mentions", ascending=False)
+        fig_kw = px.bar(
+            kw_df,
+            x="Mentions",
+            y="Topic",
+            orientation="h",
+            color="Mentions",
+            color_continuous_scale="Viridis",
+            text="Mentions",
+        )
+        fig_kw.update_traces(textposition="outside")
+        fig_kw.update_layout(height=320, margin=dict(l=10, r=10, t=10, b=10))
+        st.plotly_chart(fig_kw, use_container_width=True)
+
+        if main_sections:
+            st.markdown("---")
+            st.markdown("### Review Structure (Main Sections)")
+            st.write(main_sections)
+
+        st.markdown("---")
+        st.subheader("Full Literature Review (Markdown)")
         st.markdown(review_text)
     else:
         st.warning("Literature review document not found.")
 
     st.markdown("---")
     st.subheader("Key References")
-    for ref in key_references:
-        st.markdown(f"- **{ref['title']}** — {ref['author']} ({ref['year']}) [{ref['type']}]")
+    ref_query = st.text_input("Search references (title or author)", value="", key="ref_search")
+    if ref_query.strip():
+        q = ref_query.lower().strip()
+        refs = [
+            r for r in key_references
+            if (q in str(r.get("title", "")).lower()) or (q in str(r.get("author", "")).lower())
+        ]
+    else:
+        refs = key_references
+
+    if not refs:
+        st.warning("No references matched your search.")
+    else:
+        for ref in refs:
+            st.markdown(f"- **{ref['title']}** — {ref['author']} ({ref['year']}) [{ref['type']}]")
 
 
 # ---------------------------------------------------------------------------

@@ -18,3 +18,17 @@ web/node_modules/
 web/dist/
 web/tsconfig.tsbuildinfo
 ~$*
+
+# LaTeX build artefacts (keep .tex, .bib, figures, assets)
+latex/*.aux
+latex/*.bbl
+latex/*.bcf
+latex/*.blg
+latex/*.lof
+latex/*.lot
+latex/*.out
+latex/*.toc
+latex/*.run.xml
+latex/*.synctex.gz
+latex/*.fdb_latexmk
+latex/*.fls

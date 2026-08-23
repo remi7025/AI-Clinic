@@ -1,66 +1,25 @@
-# AI Healthcare Compliance & Regulations Dashboard
+# AI Clinic
 
-An interactive dashboard on AI for healthcare compliance and regulations across countries.
+AI for Healthcare Compliance and Regulations Across Countries — interactive dashboard, comparative dataset, research report, and presentation.
 
-**Supervisor:** Dr. Anuradha Kar
+**Supervisor:** Dr. Anuradha Kar  
+**Team:** Remi Uttejitha ALLAM, Baptiste Langlois, Tong Li, Darryl Towa  
 
 **Live dashboard:** [https://remi7025.github.io/AI-Healthcare-Compliance-Dashboard/](https://remi7025.github.io/AI-Healthcare-Compliance-Dashboard/)
 
-## Project Structure
+## What is in this repository
 
-```
-AI Clinic/
-├── app.py                    # Streamlit dashboard (Python)
-├── web/                      # React dashboard (recommended for presentations)
-├── requirements.txt          # Python dependencies
-├── data/
-│   └── compliance_dataset.json   # Structured country-wise compliance data
-└── README.md
-```
+| Item | Path |
+|------|------|
+| Compliance dataset (20 countries, 7 themes) | `data/compliance_dataset.json` |
+| React dashboard (GitHub Pages) | `web/` |
+| Streamlit prototype | `app.py` |
+| LaTeX report source | `latex/AI_CLINIC_REPORT.tex` |
+| Generated PDF report | `AI CLINIC REPORT.pdf` |
+| Presentation | `AI_Clinic_Presentation.pptx` |
+| Figure/table generators | `generate_latex_*.py`, `generate_ppt.py` |
 
-## Deliverables
-
-1. **Country-Wise Compliance Dataset** (`data/compliance_dataset.json`) — Structured dataset covering 20 countries across 6 regions with 7 thematic compliance scores.
-
-2. **Interactive Dashboard** — Two implementations:
-   - **React web app** (`web/`) — Modern, presentation-ready UI (recommended)
-   - **Streamlit app** (`app.py`) — Python prototype
-
-   Both include 7 tabs:
-   - **World Map** — Choropleth map of regulatory maturity and theme scores
-   - **Country Comparison** — Side-by-side radar charts, bar charts, and tables
-   - **Theme Analysis** — Heatmap, regional averages, and compliance gap analysis
-   - **Global Trends** — Timeline, trend cards, and device approval distribution
-   - **Country Details** — Deep-dive profiles with expandable regulatory sections
-   - **AI Use Cases & Trends** — Derived readiness for radiology, pathology, genomics, drug discovery
-   - **Literature** — Key takeaways and dataset references
-
-## Countries Covered
-
-| Region | Countries |
-|--------|-----------|
-| North America | United States, Canada |
-| Europe | European Union, United Kingdom, Germany, Switzerland |
-| Asia | China, India, Japan, South Korea, Singapore, Thailand |
-| Middle East | Saudi Arabia, UAE, Israel |
-| Africa | South Africa, Nigeria, Kenya |
-| Oceania | Australia |
-
-## Themes Tracked
-
-1. Data Privacy & Governance
-2. Clinical Validation & Safety
-3. Regulatory Approval Process
-4. Algorithmic Transparency
-5. Ethical Considerations
-6. Post-Market Surveillance
-7. Liability & Accountability
-
-## Setup & Running
-
-### React Dashboard (Power BI style — recommended)
-
-Professional BI-style layout: dark header, left slicers, KPI tiles, and multi-visual pages like Power BI.
+## Quick start — dashboard
 
 ```bash
 cd web
@@ -68,56 +27,20 @@ npm install
 npm run dev
 ```
 
-Open **http://localhost:5173**
-
-The same app is published at **https://remi7025.github.io/AI-Healthcare-Compliance-Dashboard/**.
-
-**Pages:** Overview · Theme Analysis · Comparison · Trends & Use Cases · Country Detail · Literature
+## Rebuild report / presentation
 
 ```bash
-python sync_web_data.py
+python generate_latex_report.py   # builds AI CLINIC REPORT.pdf
+python generate_ppt.py            # builds AI_Clinic_Presentation.pptx
 ```
 
-Production build:
+## Methodology (short)
 
-```bash
-cd web && npm run build && npm run preview
-```
+1. Collect regulatory and literature sources (2018–2026)  
+2. Code 20 jurisdictions into one schema  
+3. Score seven themes on a 1–10 scale; assign maturity labels  
+4. Dashboard derives overall means, gaps, and use-case readiness  
 
-### Streamlit Dashboard
+## License / note
 
-#### Prerequisites
-
-- Python 3.9 or higher
-
-#### Installation
-
-```bash
-pip install -r requirements.txt
-```
-
-#### Running
-
-```bash
-streamlit run app.py
-```
-
-The dashboard will open in your browser at `http://localhost:8501`.
-
-## Data Sources
-
-- FDA (U.S. Food and Drug Administration)
-- European Commission / EU AI Act
-- European Medicines Agency (EMA)
-- WHO — Ethics & Governance of AI for Health (2021)
-- OECD AI Policy Observatory
-- National regulatory agency publications (MHRA, NMPA, PMDA, Health Canada, TGA, etc.)
-- Peer-reviewed literature (PubMed, Scopus, IEEE Xplore)
-
-## Dashboard Features
-
-- **Filter by region** — Focus on specific geographic areas
-- **Filter by maturity level** — Compare countries at similar regulatory stages
-- **Filter by theme** — Focus on specific compliance dimensions
-- **Interactive visualizations** — Hover, zoom, and click on all charts
-- **Downloadable data** — Export tables and charts from the dashboard
+Academic research and decision-support artefact — not legal advice.

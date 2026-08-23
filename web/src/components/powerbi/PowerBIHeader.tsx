@@ -5,6 +5,7 @@ import {
   GitCompare,
   Globe2,
   LayoutDashboard,
+  Presentation,
   Sparkles,
   TrendingUp,
 } from "lucide-react";
@@ -17,6 +18,7 @@ const PAGES = [
   { id: "trends", label: "Trends & Use Cases", icon: TrendingUp },
   { id: "details", label: "Country Detail", icon: Globe2 },
   { id: "literature", label: "Literature", icon: BookOpen },
+  { id: "presentation", label: "PPT / Jury", icon: Presentation },
 ] as const;
 
 export type PowerBIPage = (typeof PAGES)[number]["id"];

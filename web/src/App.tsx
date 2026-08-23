@@ -8,7 +8,6 @@ import { ComparisonPage } from "./components/powerbi/pages/ComparisonPage";
 import { TrendsPage } from "./components/powerbi/pages/TrendsPage";
 import { DetailsPage } from "./components/powerbi/pages/DetailsPage";
 import { LiteraturePage } from "./components/powerbi/pages/LiteraturePage";
-import { PresentationPage } from "./components/powerbi/pages/PresentationPage";
 
 function PageContent() {
   const { activePage } = useDashboard();
@@ -20,7 +19,6 @@ function PageContent() {
       {activePage === "trends" && <TrendsPage />}
       {activePage === "details" && <DetailsPage />}
       {activePage === "literature" && <LiteraturePage />}
-      {activePage === "presentation" && <PresentationPage />}
     </div>
   );
 }

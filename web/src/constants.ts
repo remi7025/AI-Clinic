@@ -138,7 +138,6 @@ export const TABS = [
   { id: "details", label: "Country Details" },
   { id: "usecases", label: "AI Use Cases & Trends" },
   { id: "literature", label: "Literature Review" },
-  { id: "presentation", label: "PPT / Jury" },
 ] as const;
 
 export const LITERATURE_CARDS = [

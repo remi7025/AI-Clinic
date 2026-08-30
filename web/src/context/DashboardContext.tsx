@@ -1,6 +1,5 @@
 import {
   createContext,
-  useCallback,
   useContext,
   useEffect,
   useMemo,
@@ -38,23 +37,6 @@ interface DashboardState {
 
 const DashboardContext = createContext<DashboardState | null>(null);
 
-const POWERBI_PAGES = [
-  "overview",
-  "analysis",
-  "comparison",
-  "trends",
-  "details",
-  "report",
-] as const satisfies readonly PowerBIPage[];
-
-function pageFromHash(): PowerBIPage {
-  let hash = window.location.hash.replace(/^#/, "");
-  if (hash === "literature") hash = "report";
-  return (POWERBI_PAGES as readonly string[]).includes(hash)
-    ? (hash as PowerBIPage)
-    : "overview";
-}
-
 export function DashboardProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -67,27 +49,12 @@ export function DashboardProvider({ children }: { children: ReactNode }) {
   const [selectedThemes, setSelectedThemes] = useState<ThemeKey[]>([...THEME_KEYS]);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [compareCountries, setCompareCountries] = useState<string[]>([]);
-  const [activePage, setActivePageState] = useState<PowerBIPage>(pageFromHash);
-
-  const setActivePage = useCallback((page: PowerBIPage) => {
-    setActivePageState(page);
-    const nextHash = `#${page}`;
-    if (window.location.hash !== nextHash) {
-      window.history.replaceState(null, "", nextHash);
-    }
-  }, []);
+  const [activePage, setActivePage] = useState<PowerBIPage>("overview");
 
   useEffect(() => {
-    if (window.location.hash === "#literature") {
-      window.history.replaceState(null, "", "#report");
-      setActivePageState("report");
+    if (window.location.hash) {
+      window.history.replaceState(null, "", window.location.pathname + window.location.search);
     }
-  }, []);
-
-  useEffect(() => {
-    const onHashChange = () => setActivePageState(pageFromHash());
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
   useEffect(() => {

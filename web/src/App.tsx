@@ -18,7 +18,7 @@ function PageContent() {
       {activePage === "comparison" && <ComparisonPage />}
       {activePage === "trends" && <TrendsPage />}
       {activePage === "details" && <DetailsPage />}
-      {activePage === "literature" && <LiteraturePage />}
+      {activePage === "report" && <LiteraturePage />}
     </div>
   );
 }

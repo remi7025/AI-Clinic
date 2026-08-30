@@ -16,7 +16,7 @@ const PAGES = [
   { id: "comparison", label: "Comparison", icon: GitCompare },
   { id: "trends", label: "Trends & Use Cases", icon: TrendingUp },
   { id: "details", label: "Country Detail", icon: Globe2 },
-  { id: "literature", label: "Report", icon: BookOpen },
+  { id: "report", label: "Report", icon: BookOpen },
 ] as const;
 
 export type PowerBIPage = (typeof PAGES)[number]["id"];

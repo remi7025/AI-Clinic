@@ -40,6 +40,18 @@ def strip_latex_inline(text: str) -> str:
     return text
 
 
+def to_roman(n: int) -> str:
+    vals = [
+        (10, "x"), (9, "ix"), (5, "v"), (4, "iv"), (1, "i"),
+    ]
+    result = ""
+    for value, numeral in vals:
+        while n >= value:
+            result += numeral
+            n -= value
+    return result
+
+
 def table_from_tabular(lines: list[str]) -> list[str]:
     rows: list[list[str]] = []
     for line in lines:
@@ -67,7 +79,8 @@ def convert_tex_body(tex: str) -> str:
     i = 0
     in_itemize = False
     in_enumerate = False
-    enum_label = "1."
+    enum_counter = 1
+    enum_roman = False
 
     while i < len(lines):
         line = lines[i].strip()
@@ -172,7 +185,8 @@ def convert_tex_body(tex: str) -> str:
             continue
         if line.startswith("\\begin{enumerate}"):
             in_enumerate = True
-            enum_label = "1."
+            enum_counter = 1
+            enum_roman = bool(re.search(r"label=\(\\roman\*?\)", line))
             i += 1
             continue
         if line.startswith("\\end{enumerate}"):
@@ -182,8 +196,9 @@ def convert_tex_body(tex: str) -> str:
         if line.startswith("\\item"):
             item = strip_latex_inline(line.replace("\\item", "", 1))
             if in_enumerate:
-                out.append(f"\n{enum_label} {item}")
-                enum_label = f"{int(enum_label.rstrip('.')) + 1}."
+                label = f"({to_roman(enum_counter)})" if enum_roman else f"{enum_counter}."
+                out.append(f"\n{label} {item}")
+                enum_counter += 1
             else:
                 out.append(f"\n- {item}")
             i += 1

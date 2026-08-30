@@ -17,11 +17,11 @@ We thank our supervisor, Dr. Anuradha Kar, for guidance throughout this AI Clini
 Artificial intelligence (AI) is reshaping healthcare through diagnostic imaging, digital pathology, genomic interpretation, drug-discovery support, and clinical decision support. These capabilities create substantial regulatory complexity: software may qualify as Software as a Medical Device (SaMD), process sensitive health data under divergent privacy regimes, and require lifecycle governance when algorithms adapt over time.
 This project delivers a research and engineering artefact in three steps:
 
-1. a structured literature review of AI healthcare compliance across 20 countries in seven regions;
+(i) a structured literature review of AI healthcare compliance across 20 countries in seven regions;
 
-2. a curated dataset scoring seven regulatory themes on a 1--10 scale;
+(ii) a curated dataset scoring seven regulatory themes on a 1--10 scale;
 
-3. an interactive dashboard for geospatial comparison, theme analysis, global trends, use-case readiness, and literature browsing.
+(iii) an interactive dashboard for geospatial comparison, theme analysis, global trends, use-case readiness, and literature browsing.
 Key findings include convergence toward risk-based SaMD classification and comprehensive data protection modelled on the General Data Protection Regulation (GDPR), persistent disparities in enforcement capacity between advanced and emerging economies, and growing emphasis on post-market surveillance and liability for adaptive AI. The EU AI Act is a watershed in binding AI governance. Clinical adoption in radiology, pathology, genomics, and public-health surveillance amplifies the need for transparent validation, representative datasets, and Total Product Lifecycle oversight.
 
 # Introduction

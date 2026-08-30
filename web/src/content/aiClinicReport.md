@@ -6,8 +6,6 @@
 **Supervisor:** Dr. Anuradha Kar  
 **Submission date:** 30/08/2026
 
-> Full formatted report with all tables and figures: [Download PDF](./AI_CLINIC_REPORT.pdf)
-
 ---
 
 ## Acknowledgements

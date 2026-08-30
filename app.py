@@ -233,7 +233,7 @@ selected_score_cols = [theme_label_to_col[t] for t in selected_themes]
 # ---------------------------------------------------------------------------
 st.markdown('<p class="main-header">AI Healthcare Compliance & Regulations Dashboard</p>', unsafe_allow_html=True)
 st.markdown(
-    '<p class="sub-header">Interactive comparison of AI regulations in healthcare across 20 countries and 6 regions</p>',
+    '<p class="sub-header">Interactive comparison of AI regulations in healthcare across 20 countries and 7 regions</p>',
     unsafe_allow_html=True,
 )
 

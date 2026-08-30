@@ -317,7 +317,7 @@ def build() -> None:
     sl = prs.slides.add_slide(prs.slide_layouts[6])
     title_bar(sl, "Methodology pipeline: data collection → score calculation")
     steps = [
-        ("1. Scope", "20 jurisdictions across North America, Europe, Asia, Middle East, Africa, Oceania."),
+        ("1. Scope", "20 jurisdictions across seven regions: North America, Europe, Asia, Middle East, Africa, Oceania, South America."),
         ("2. Collect", "Primary: FDA, EMA, MHRA, NMPA, PMDA, WHO, IMDRF, GDPR/AI Act…\nSecondary: PubMed, Scopus, IEEE, Scholar, SSRN (2018–2026)."),
         ("3. Code", "Same schema for every country: privacy, AI rule, device framework, approval, validation, ethics, post-market, liability…"),
         ("4. Score", "Assign 1–10 per theme using 4 criteria; assign qualitative maturity label separately."),

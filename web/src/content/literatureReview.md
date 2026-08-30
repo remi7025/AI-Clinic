@@ -37,7 +37,7 @@ A structured review was conducted using:
 - Policy Documents: National AI strategies, data protection laws, medical device regulations
 - Search Terms: "AI healthcare regulation," "medical device AI compliance," "SaMD regulation," "AI ethics healthcare," "health data governance," "algorithmic transparency medicine"
 - Inclusion Criteria: Publications from 2018–2026 addressing AI regulation, compliance, or ethics in healthcare contexts
-- Scope: 20 countries across 6 regions
+- Scope: 20 countries across 7 regions
 
 ---
 

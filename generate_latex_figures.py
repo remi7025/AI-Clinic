@@ -336,37 +336,43 @@ def esc(text: object) -> str:
 
 
 def build_country_profiles(countries: list[dict]) -> None:
-    """Compact LaTeX country profiles for comparative Results chapter."""
+    """Country profiles with highlighted headings and stacked side labels."""
     ranked = sorted(countries, key=overall, reverse=True)
     parts = [
-        r"{\footnotesize",
-        r"\begin{description}[style=unboxed,leftmargin=0.6cm,font=\normalfont\bfseries]",
+        r"\begingroup",
+        r"\setlength{\parskip}{3pt}",
+        r"\renewcommand{\arraystretch}{1.15}",
         "",
     ]
-    for c in ranked:
+    for i, c in enumerate(ranked):
         s = c["themes_scores"]
         challenge = esc(c["challenges"])
-        if len(challenge) > 160:
-            challenge = challenge[:157] + "..."
+        if len(challenge) > 220:
+            challenge = challenge[:217] + "..."
         notable = esc(c["notable_developments"])
-        if len(notable) > 160:
-            notable = notable[:157] + "..."
-        parts.append(
-            f"\\item[{esc(c['country'])}] "
-            + f"{esc(c['region'])}; {esc(c['maturity_level'])}; "
-            + f"overall {overall(c):.1f}/10; "
-            + f"{esc(c['regulatory_body'])}; "
-            + f"{c['num_ai_devices_approved']} devices; "
-            + f"first AI instrument {c['year_first_ai_regulation']}. "
-            + f"Scores: P{s['data_privacy']} C{s['clinical_validation']} "
-            + f"A{s['approval_process']} T{s['transparency']} "
-            + f"E{s['ethics']} PM{s['post_market']} L{s['liability']}. "
-            + f"Privacy: {esc(c['data_privacy_law'])}. "
-            + f"AI rule: {esc(c['ai_specific_regulation'])}. "
-            + f"Challenges: {challenge} "
-            + f"Notable: {notable}"
-        )
-    parts += [r"\end{description}", "}"]
+        if len(notable) > 220:
+            notable = notable[:217] + "..."
+        if i > 0:
+            parts.append(r"\vspace{0.55em}")
+        parts += [
+            rf"\noindent{{\color{{aivanavy}}\bfseries {esc(c['country'])}}}\par",
+            r"\vspace{0.15em}",
+            rf"\noindent\textbf{{Region:}} {esc(c['region'])}\par",
+            rf"\noindent\textbf{{Maturity:}} {esc(c['maturity_level'])}\par",
+            rf"\noindent\textbf{{Overall score:}} {overall(c):.1f}/10\par",
+            rf"\noindent\textbf{{Regulatory body:}} {esc(c['regulatory_body'])}\par",
+            rf"\noindent\textbf{{AI devices approved:}} {c['num_ai_devices_approved']}\par",
+            rf"\noindent\textbf{{First AI instrument:}} {c['year_first_ai_regulation']}\par",
+            rf"\noindent\textbf{{Theme scores:}} "
+            rf"Privacy {s['data_privacy']}, Clinical validation {s['clinical_validation']}, "
+            rf"Approval {s['approval_process']}, Transparency {s['transparency']}, "
+            rf"Ethics {s['ethics']}, Post-market {s['post_market']}, Liability {s['liability']}\par",
+            rf"\noindent\textbf{{Privacy:}} {esc(c['data_privacy_law'])}\par",
+            rf"\noindent\textbf{{AI regulation:}} {esc(c['ai_specific_regulation'])}\par",
+            rf"\noindent\textbf{{Challenges:}} {challenge}\par",
+            rf"\noindent\textbf{{Notable developments:}} {notable}\par",
+        ]
+    parts += [r"\endgroup", ""]
     (BASE / "latex" / "generated" / "country_profiles.tex").write_text(
         "\n".join(parts), encoding="utf-8"
     )

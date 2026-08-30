@@ -80,7 +80,7 @@
 \newcommand{\SupervisorName}{Dr.\ Anuradha Kar}
 \newcommand{\HostOrganisation}{AI Clinic}
 \newcommand{\AcademicYear}{2025--2026}
-\newcommand{\SubmissionDate}{30 August 2026}
+\newcommand{\SubmissionDate}{30/08/2026}
 
 \begin{document}
 
@@ -92,35 +92,16 @@
 \thispagestyle{empty}
 \centering
 
-\vspace*{0.2cm}
-\includegraphics[width=0.52\textwidth]{assets/aivancity_logo.png}
+\vspace*{0.4cm}
+\includegraphics[width=0.48\textwidth]{assets/aivancity_logo.png}
 
-\vspace{0.7cm}
+\vfill
 
-\noindent
-\begin{tikzpicture}
-  \fill[aivanavy] (0,0) rectangle (\textwidth,1.45cm);
-  \node[anchor=west, inner sep=0pt] at (0.45cm,0.98cm)
-    {\color{white}\bfseries\large Grande \'Ecole Program};
-  \node[anchor=west, inner sep=0pt] at (0.45cm,0.42cm)
-    {\color{aivagold}\itshape Specialization: Artificial Intelligence \& Data Science};
-\end{tikzpicture}
+{\color{aivanavy}\LARGE\bfseries \ProjectTitle\par}
+\vspace{0.45cm}
+{\color{aivagold}\large\itshape \ProjectSubtitle\par}
 
-\vspace{0.9cm}
-
-\begin{flushleft}
-{\color{aivagold}\rule{0.35cm}{1.4cm}}%
-\hspace{0.35cm}%
-\begin{minipage}[t]{0.88\textwidth}
-  {\color{aivatext}\small\bfseries AI CLINIC\par}
-  \vspace{0.25cm}
-  {\color{aivanavy}\LARGE\bfseries \ProjectTitle\par}
-  \vspace{0.25cm}
-  {\color{aivagold}\large\itshape \ProjectSubtitle\par}
-\end{minipage}
-\end{flushleft}
-
-\vspace{1.0cm}
+\vfill
 
 \noindent
 \begin{tcolorbox}[
@@ -128,24 +109,25 @@
   colframe=aivagray,
   boxrule=0pt,
   arc=2pt,
-  left=14pt,
-  right=14pt,
-  top=12pt,
-  bottom=12pt,
+  left=16pt,
+  right=16pt,
+  top=14pt,
+  bottom=14pt,
   width=\textwidth
 ]
-\renewcommand{\arraystretch}{1.55}
+\renewcommand{\arraystretch}{1.6}
 {\color{aivatext}\normalsize
-\begin{tabular}{@{}>{\bfseries}p{4.3cm} p{\dimexpr\linewidth-4.5cm\relax}@{}}
-Names & Remi Uttejitha ALLAM \\
-      & Baptiste Langlois \\
-      & Tong Li \\
-      & Darryl Towa \\
+\begin{tabular}{@{}>{\bfseries}p{4.5cm} p{\dimexpr\linewidth-4.7cm\relax}@{}}
+Team & Remi Uttejitha ALLAM \\
+                       & Baptiste Langlois \\
+                       & Tong Li \\
+                       & Darryl Towa \\
 Supervisor & \SupervisorName \\
-Academic year & \AcademicYear \\
 Submission date & \SubmissionDate \\
 \end{tabular}}
 \end{tcolorbox}
+
+\vspace{0.8cm}
 
 \end{titlepage}
 
@@ -164,11 +146,16 @@ We thank our supervisor, \SupervisorName, for guidance throughout this AI Clinic
 
 Artificial intelligence (AI) is reshaping healthcare through diagnostic imaging, digital pathology, genomic interpretation, drug-discovery support, and clinical decision support. These capabilities create substantial regulatory complexity: software may qualify as Software as a Medical Device (SaMD), process sensitive health data under divergent privacy regimes, and require lifecycle governance when algorithms adapt over time.
 
-This project delivers a research and engineering artefact comprising (1)~a structured literature review of AI healthcare compliance across 20 countries in six regions; (2)~a curated dataset scoring seven regulatory themes on a 1--10 scale; and (3)~an interactive dashboard for geospatial comparison, theme analysis, global trends, use-case readiness, and literature browsing.
+This project delivers a research and engineering artefact in three steps:
+\begin{enumerate}[label=(\roman*), leftmargin=*, itemsep=2pt, topsep=4pt]
+  \item a structured literature review of AI healthcare compliance across 20 countries in seven regions;
+  \item a curated dataset scoring seven regulatory themes on a 1--10 scale;
+  \item an interactive dashboard for geospatial comparison, theme analysis, global trends, use-case readiness, and literature browsing.
+\end{enumerate}
 
-Key findings include convergence toward risk-based SaMD classification and comprehensive data protection modelled on the GDPR, persistent disparities in enforcement capacity between advanced and emerging economies, and growing emphasis on post-market surveillance and liability for adaptive AI. The EU AI Act is a watershed in binding AI governance. Clinical adoption in radiology, pathology, genomics, and public-health surveillance amplifies the need for transparent validation, representative datasets, and Total Product Lifecycle oversight.
+Key findings include convergence toward risk-based SaMD classification and comprehensive data protection modelled on the General Data Protection Regulation (GDPR), persistent disparities in enforcement capacity between advanced and emerging economies, and growing emphasis on post-market surveillance and liability for adaptive AI. The EU AI Act is a watershed in binding AI governance. Clinical adoption in radiology, pathology, genomics, and public-health surveillance amplifies the need for transparent validation, representative datasets, and Total Product Lifecycle oversight.
 
-\textbf{Keywords:} AI healthcare regulation; SaMD; compliance dashboard; data privacy; clinical validation; EU AI Act; post-market surveillance.
+\textbf{Keywords:} AI healthcare regulation; Software as a Medical Device (SaMD); General Data Protection Regulation (GDPR); compliance dashboard; data privacy; clinical validation; EU AI Act; post-market surveillance.
 
 \tableofcontents
 \clearpage
@@ -194,13 +181,9 @@ Key findings include convergence toward risk-based SaMD classification and compr
 \label{ch:intro}
 % ===========================================================================
 
-\section{General context}
-
-The integration of AI into healthcare is one of the most consequential technological shifts of the twenty-first century. AI-based SaMD now assists clinicians in radiology, pathology, ophthalmology, cardiology, and genomics, among other specialties \cite{topol2019,rajpurkar2022}. Major regulators have authorised hundreds of AI/ML-enabled devices, reflecting exponential growth in the field \cite{fda2021,wu2021}.
-
-Unlike traditional medical devices, AI systems can be adaptive, opaque, and dependent on training data that may embed biases---raising regulatory questions that existing frameworks were not designed to address \cite{gerke2020,char2018}. Ensuring patient safety, data privacy, algorithmic fairness, and accountability therefore requires jurisdiction-specific compliance strategies and continuous monitoring after deployment.
-
 \section{Problem statement}
+
+The integration of AI into healthcare is one of the most consequential technological shifts of the twenty-first century. AI-based SaMD now assists clinicians in radiology, pathology, ophthalmology, cardiology, and genomics, among other specialties \cite{topol2019,rajpurkar2022}. Major regulators have authorised hundreds of AI/ML-enabled devices, reflecting exponential growth in the field \cite{fda2021,wu2021}. Unlike traditional medical devices, AI systems can be adaptive, opaque, and dependent on training data that may embed biases---raising regulatory questions that existing frameworks were not designed to address \cite{gerke2020,char2018}.
 
 Regulatory diversity across countries creates practical and scholarly difficulties for four groups of stakeholders:
 \begin{itemize}
@@ -210,7 +193,7 @@ Regulatory diversity across countries creates practical and scholarly difficulti
   \item \textbf{Clinicians and hospital administrators} evaluating whether AI tools meet local legal and ethical requirements.
 \end{itemize}
 
-Public information on AI healthcare regulation is abundant but fragmented: statutes, guidance, ethics principles, and device-authorisation lists sit in separate institutional silos. There is a need for a structured, comparative analysis that is both scholarly (literature synthesis, explicit scoring method) and usable (an interactive dashboard). This project addresses that gap by combining a coded 20-country dataset with a visual analytics interface.
+Public information on AI healthcare regulation is abundant but fragmented: statutes, guidance, ethics principles, and device-authorisation lists sit in separate institutional silos. There is a need for a structured, comparative analysis that is both scholarly (literature synthesis, explicit scoring method) and usable (an interactive dashboard). Ensuring patient safety, data privacy, algorithmic fairness, and accountability therefore requires jurisdiction-specific compliance strategies and continuous monitoring after deployment. This project addresses that gap by combining a coded 20-country dataset with a visual analytics interface.
 
 \subsection{Project objectives}
 
@@ -303,7 +286,7 @@ A structured review used PubMed, Scopus, IEEE Xplore, Google Scholar, and SSRN, 
 
 \section{Country sample and coding schema}
 
-Twenty jurisdictions were selected to cover North America, Europe, Asia, the Middle East, Africa, and Oceania, including both advanced regulators and emerging markets. Each country record uses the same fields: regulatory body, privacy law, AI-specific regulation, medical-device framework, approval process, data governance, clinical validation, transparency, ethics, post-market surveillance, liability, legislations, challenges, and notable developments.
+Twenty jurisdictions were selected to cover North America, Europe, Asia, the Middle East, Africa, Oceania, and South America, including both advanced regulators and emerging markets. Each country record uses the same fields: regulatory body, privacy law, AI-specific regulation, medical-device framework, approval process, data governance, clinical validation, transparency, ethics, post-market surveillance, liability, legislations, challenges, and notable developments.
 
 \section{Theme scoring}
 
@@ -381,7 +364,7 @@ The canonical dataset is version-controlled in \texttt{data/compliance\_dataset.
 \section{Pipeline summary}
 
 \begin{enumerate}
-  \item Scope 20 jurisdictions across six regions.
+  \item Scope 20 jurisdictions across seven regions.
   \item Collect primary regulatory texts and secondary literature (2018--2026).
   \item Code each country into a common schema.
   \item Assign 1--10 theme scores and a maturity label.
@@ -508,7 +491,7 @@ Figure~\ref{fig:peer-comparison} compares five representative jurisdictions side
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=0.78\textwidth]{figures/radar_top5.png}
-  \caption[Radar profiles of the top five scorers]{\textbf{Radar profiles of the top five scorers;} Each coloured polygon is one top jurisdiction across the seven themes (axes from centre 0 to outer rim 10). A wider polygon means stronger scores. Compare shapes: EU/Germany typically extend farthest on privacy and ethics; the United States extends farthest on clinical validation and approval process, with a relative dip on transparency/ethics. This shows that ``best country'' depends on which theme matters for the product.}
+  \caption[Radar profiles of the top five scorers]{\textbf{Radar profiles of the top five scorers:}\\ Each coloured polygon is one top jurisdiction across the seven themes (axes from centre 0 to outer rim 10). A wider polygon means stronger scores. Compare shapes: EU/Germany typically extend farthest on privacy and ethics; the United States extends farthest on clinical validation and approval process, with a relative dip on transparency/ethics. This shows that ``best country'' depends on which theme matters for the product.}
   \label{fig:radar-top5}
 \end{figure}
 
@@ -531,7 +514,7 @@ Within Africa, South Africa's POPIA-era privacy and relatively stronger institut
 
 \section{Country-by-country profiles}
 
-The following compact profiles, ordered by overall score, summarise each jurisdiction. They are the narrative counterpart of the dashboard Country Details page and should be read with Tables~\ref{tab:overall-rank} and~\ref{tab:country-scores}.
+The following profiles, ordered by overall score, summarise each jurisdiction. Each country is presented with highlighted headings and stacked fields for quick reading. They mirror the dashboard Country Details page and should be read with Tables~\ref{tab:overall-rank} and~\ref{tab:country-scores}.
 
 \input{generated/country_profiles.tex}
 
@@ -544,16 +527,16 @@ Table~\ref{tab:global-trends} records structured trend objects with adoption lev
 
 \section{Clinical use cases and milestones}
 
-Use-case readiness in the dashboard is a weighted mean of theme scores (radiology weights clinical validation and post-market; genomics weights privacy). Imaging SaMD therefore maps naturally to US/EU clinical-validation strength; genomics maps to GDPR-aligned privacy. Hospital CDS emphasises Total Product Lifecycle thinking \cite{hwang2019,petersen2022}; public-health AI requires accountability beyond individual patients \cite{who2021}; foundation models still lack settled SaMD templates.
+Use-case readiness in the dashboard is a weighted mean of theme scores (radiology weights clinical validation and post-market; genomics weights privacy). Imaging Software as a Medical Device (SaMD) therefore maps naturally to United States (US)/European Union (EU) clinical-validation strength; genomics maps to General Data Protection Regulation (GDPR)-aligned privacy. Hospital Clinical Decision Support (CDS) emphasises Total Product Lifecycle (TPLC) thinking \cite{hwang2019,petersen2022}; public-health Artificial Intelligence (AI) requires accountability beyond individual patients \cite{who2021}; foundation models still lack settled SaMD templates.
 
-Key milestones shaping the score patterns include the EU AI Act (2024), FDA AI/ML SaMD Action Plan (2021) and PCCP guidance (2023), WHO ethics guidance (2021), GMLP (2021), and national data-protection waves (PIPL, DPDP, POPIA, NDPA, LGPD).
+Key milestones shaping the score patterns include the European Union Artificial Intelligence Act (EU AI Act, 2024), Food and Drug Administration (FDA) AI/Machine Learning (ML) SaMD Action Plan (2021) and Predetermined Change Control Plan (PCCP) guidance (2023), World Health Organization (WHO) ethics guidance (2021), Good Machine Learning Practice (GMLP, 2021), and national data-protection waves: Personal Information Protection Law (PIPL), Digital Personal Data Protection Act (DPDP), Protection of Personal Information Act (POPIA), Nigeria Data Protection Act (NDPA), and Lei Geral de Prote\c{c}\~{a}o de Dados (LGPD).
 
 % ===========================================================================
 \chapter{Conclusions}
 \label{ch:conclusion}
 % ===========================================================================
 
-\section{Summary of findings}
+\section{Conclusions}
 
 The global regulatory landscape for AI in healthcare is characterised by rapid evolution, converging principles, and persistent diversity. The comparative results in Chapter~\ref{ch:results} support five condensed claims:
 
@@ -567,16 +550,23 @@ The global regulatory landscape for AI in healthcare is characterised by rapid e
 
 Lifecycle governance---post-market surveillance, predetermined change control, and liability for adaptive algorithms---is the least mature cluster of themes and the most important frontier as clinical AI moves from static models to continuously updated systems \cite{babic2019,hwang2019}.
 
-\section{Implications for stakeholders}
+This project contributes (i)~a coded 20-country, seven-theme dataset; (ii)~an explicit scoring and maturity method with documented gap and readiness formulae; (iii)~comparative figures and country profiles; (iv)~an interactive dashboard for exploration; and (v)~this report linking problem, literature, method, and results.
 
-\paragraph{Developers:}
-Use the theme radar and pairwise comparisons to choose first markets by product risk: imaging SaMD may prioritise US/EU clinical-validation strength; genomics products may prioritise GDPR-aligned privacy; adaptive algorithms need PCCP-like change control.
+\section{Future use}
 
-\paragraph{Policymakers:}
-Gaps on clinical validation and post-market themes identify where guidance and inspectorate capacity yield the largest safety return. Emerging jurisdictions can leapfrog by adopting IMDRF/GMLP templates rather than inventing bespoke scorecards.
+The AI Clinic artefacts are designed for ongoing practical use beyond this submission:
 
-\paragraph{Researchers and students:}
-The open dataset and dashboard make comparative AI governance reproducible and teachable; the country profiles in this report are a static snapshot of the same underlying JSON.
+\paragraph{For developers and product teams:}
+Use the theme radar and pairwise comparisons to choose first markets by product risk: imaging SaMD may prioritise US/EU clinical-validation strength; genomics products may prioritise GDPR-aligned privacy; adaptive algorithms need PCCP-like change control. The dashboard filters help test market-entry scenarios before committing to a regulatory strategy.
+
+\paragraph{For policymakers and regulators:}
+Gaps on clinical validation and post-market themes identify where guidance and inspectorate capacity yield the largest safety return. Emerging jurisdictions can leapfrog by adopting IMDRF/GMLP templates rather than inventing bespoke scorecards. The open dataset supports evidence-based reform tracking over time.
+
+\paragraph{For researchers, educators, and students:}
+The version-controlled JSON schema and dashboard make comparative AI governance reproducible and teachable. Country profiles and literature references provide a structured starting point for seminars, policy briefs, and follow-on studies.
+
+\paragraph{Future development of the platform:}
+Planned extensions include live regulatory feeds, formal expert Delphi scoring, expanded country coverage (especially Latin America and additional African regulators), dedicated evaluation tracks for foundation-model medical products, and tighter integration between literature citations and dashboard country pages. Together, these steps would turn the current snapshot into a living comparative intelligence tool for global healthcare AI compliance.
 
 \section{Recommendations}
 
@@ -591,15 +581,9 @@ The open dataset and dashboard make comparative AI governance reproducible and t
 
 These recommendations synthesise WHO, IMDRF, FDA/Health Canada/MHRA GMLP, the EU AI Act, NIST AI RMF, and the peer-reviewed literature cited in this report \cite{who2021,imdrf2014,gmlp2021,euaiact2024,nistairmf}; they are not the output of a new Delphi survey.
 
-\section{Contributions}
+\section{Limitations}
 
-This project contributes (i)~a coded 20-country, seven-theme dataset; (ii)~an explicit scoring and maturity method with documented gap and readiness formulae; (iii)~comparative figures and country profiles suitable for academic presentation; (iv)~an interactive dashboard for exploration; and (v)~this report linking problem, literature, method, and results.
-
-\section{Limitations and future work}
-
-Scores are expert syntheses, not official ratings, and will drift as laws change. Device-approval counts are incomplete where agencies do not publish AI-specific tallies. The sample over-represents Advanced jurisdictions relative to the true global distribution of countries. Regional means for Oceania and South America rest on single-country observations (Australia, Brazil) and should not be over-generalised.
-
-Future work may incorporate live regulatory feeds, formal expert Delphi scoring, expanded country coverage (especially Latin America and additional African regulators), and dedicated evaluation of foundation-model medical products.
+Scores are expert syntheses, not official ratings, and will drift as laws change. Device-approval counts are incomplete where agencies do not publish AI-specific tallies. The sample over-represents Advanced jurisdictions relative to the true global distribution of countries. Regional means for Oceania and South America rest on single-country observations (Australia, Brazil) and should not be over-generalised. This report is academic decision support---not legal advice for market authorisation.
 
 Success in governing AI healthcare will depend on balancing innovation with safety, strengthening international harmonisation, and ensuring frameworks adapt to foundation models, continuous learning, and equitable access across regions.
 

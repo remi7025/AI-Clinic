@@ -2,7 +2,7 @@ export const DASHBOARD_TITLE =
   "AI for Healthcare Compliance and Regulations Across Countries";
 
 export const DASHBOARD_TAGLINE =
-  "Interactive comparison of AI regulations in healthcare across 20 countries and 6 regions";
+  "Interactive comparison of AI regulations in healthcare across 20 countries and 7 regions";
 
 export type GuideSection = {
   id: string;
@@ -106,7 +106,7 @@ export const LITERATURE_SECTIONS: { heading: string; paragraphs: string[] }[] = 
     heading: "1. Introduction",
     paragraphs: [
       "AI-based Software as a Medical Device (SaMD) now assists clinicians in radiology, pathology, ophthalmology, cardiology, and genomics (Topol, 2019; Rajpurkar et al., 2022). The U.S. FDA has authorized hundreds of AI/ML-enabled devices, reflecting rapid growth (FDA, 2025). Unlike traditional devices, AI can be adaptive, opaque, and trained on biased data — raising questions existing frameworks were not designed to address (Gerke et al., 2020; Char et al., 2018).",
-      "Objectives: (1) synthesize literature on AI healthcare regulation; (2) analyze key themes; (3) map regional similarities and differences; (4) highlight gaps, challenges, and trends; (5) inform this interactive dashboard. Methods used PubMed, Scopus, IEEE Xplore, Google Scholar, SSRN; FDA, EMA, MHRA, NMPA, WHO, OECD; national AI strategies and device rules; search terms on SaMD, ethics, health-data governance; inclusion 2018–2026; scope 20 countries / 6 regions.",
+      "Objectives: (1) synthesize literature on AI healthcare regulation; (2) analyze key themes; (3) map regional similarities and differences; (4) highlight gaps, challenges, and trends; (5) inform this interactive dashboard. Methods used PubMed, Scopus, IEEE Xplore, Google Scholar, SSRN; FDA, EMA, MHRA, NMPA, WHO, OECD; national AI strategies and device rules; search terms on SaMD, ethics, health-data governance; inclusion 2018–2026; scope 20 countries / 7 regions.",
     ],
   },
   {

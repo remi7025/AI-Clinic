@@ -11,7 +11,7 @@ AI for Healthcare Compliance and Regulations Across Countries — interactive da
 
 | Item | Path |
 |------|------|
-| Compliance dataset (19 countries, 7 themes) | `data/compliance_dataset.json` |
+| Compliance dataset (20 countries, 7 themes) | `data/compliance_dataset.json` |
 | React dashboard (GitHub Pages) | `web/` |
 | Streamlit prototype | `app.py` |
 | LaTeX report source | `latex/AI_CLINIC_REPORT.tex` |
@@ -37,7 +37,7 @@ python generate_ppt.py            # builds AI_Clinic_Presentation.pptx
 ## Methodology (short)
 
 1. Collect regulatory and literature sources (2018–2026)  
-2. Code 19 jurisdictions into one schema  
+2. Code 20 jurisdictions into one schema  
 3. Score seven themes on a 1–10 scale; assign maturity labels  
 4. Dashboard derives overall means, gaps, and use-case readiness  
 

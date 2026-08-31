@@ -133,7 +133,7 @@ def fig_maturity_mix(countries: list[dict]) -> None:
     )
     for t in autotexts:
         t.set_fontsize(8)
-    ax.set_title("Maturity-class distribution (19 jurisdictions)")
+    ax.set_title("Maturity-class distribution (20 jurisdictions)")
     fig.tight_layout()
     fig.savefig(FIG_DIR / "maturity_mix.png", dpi=180)
     plt.close(fig)

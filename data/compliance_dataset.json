@@ -433,6 +433,43 @@
       "notable_developments": "LGPD is Latin America's most comprehensive data protection law. Active AI legislation process. Growing health AI startup ecosystem in São Paulo."
     },
     {
+      "country": "Mexico",
+      "iso_code": "MEX",
+      "region": "North America",
+      "regulatory_body": "COFEPRIS (Comision Federal para la Proteccion contra Riesgos Sanitarios)",
+      "data_privacy_law": "LFPDPPP (Federal Law on Protection of Personal Data Held by Private Parties, 2010; 2025 reform)",
+      "ai_specific_regulation": "National AI Strategy (2024); draft Federal Law on AI Regulation under congressional review",
+      "medical_device_framework": "General Health Law and COFEPRIS medical-device regulations. Risk-based classification aligned with IMDRF principles.",
+      "approval_process": "COFEPRIS registration and conformity assessment for medical devices. Recognition of FDA and CE approvals in some pathways. SaMD and AI-specific guidance still emerging.",
+      "data_governance": "LFPDPPP governs personal data with ARCO rights and consent requirements. Health data treated as sensitive. Cross-border transfer rules apply. Digital health and open-data initiatives expanding.",
+      "clinical_validation": "Clinical evidence required proportional to device risk. Limited published AI-specific validation guidance. Growing academic and hospital partnerships for health AI pilots.",
+      "algorithmic_transparency": "Draft AI law proposes transparency for high-risk systems. No binding health-AI explainability mandate yet. Ethics principles in national AI strategy.",
+      "ethical_framework": "National AI Strategy emphasises human oversight, fairness, and accountability. No standalone binding healthcare AI ethics law.",
+      "post_market_surveillance": "COFEPRIS pharmacovigilance and medical-device vigilance. Mandatory adverse-event reporting. Capacity constraints for AI-specific monitoring.",
+      "liability": "Federal Civil Code and consumer protection norms. Product liability applies to medical devices. AI-specific liability not yet codified.",
+      "key_legislations": [
+        "LFPDPPP (2010)",
+        "General Health Law",
+        "COFEPRIS Medical Device Regulations",
+        "National AI Strategy (2024)",
+        "Draft Federal AI Law (under review)"
+      ],
+      "maturity_level": "Developing",
+      "year_first_ai_regulation": 2024,
+      "num_ai_devices_approved": 22,
+      "themes_scores": {
+        "data_privacy": 6,
+        "clinical_validation": 4,
+        "approval_process": 5,
+        "transparency": 4,
+        "ethics": 4,
+        "post_market": 4,
+        "liability": 4
+      },
+      "challenges": "AI-specific SaMD pathways still maturing. Federal structure creates coordination complexity. Uneven digital-health infrastructure across states.",
+      "notable_developments": "2024 National AI Strategy positions Mexico as a Latin American AI hub. COFEPRIS strengthening digital submissions. Growing cross-border health-tech investment with US market."
+    },
+    {
       "country": "Saudi Arabia",
       "iso_code": "SAU",
       "region": "Middle East",

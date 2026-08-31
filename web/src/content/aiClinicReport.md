@@ -17,7 +17,7 @@ We thank our supervisor, Dr. Anuradha Kar, for guidance throughout this AI Clini
 Artificial intelligence (AI) is reshaping healthcare through diagnostic imaging, digital pathology, genomic interpretation, drug-discovery support, and clinical decision support. These capabilities create substantial regulatory complexity: software may qualify as Software as a Medical Device (SaMD), process sensitive health data under divergent privacy regimes, and require lifecycle governance when algorithms adapt over time.
 This project delivers a research and engineering artefact in three steps:
 
-(i) a structured literature review of AI healthcare compliance across 19 countries in seven regions;
+(i) a structured literature review of AI healthcare compliance across 20 countries in seven regions;
 
 (ii) a curated dataset scoring seven regulatory themes on a 1--10 scale;
 
@@ -44,7 +44,7 @@ Public information on AI healthcare regulation is abundant but fragmented: statu
 
 The project aims to:
 
-1. Synthesise peer-reviewed and policy literature on AI healthcare regulation across 19 countries;
+1. Synthesise peer-reviewed and policy literature on AI healthcare regulation across 20 countries;
 
 2. Define seven thematic dimensions of compliance and score jurisdictional maturity on a 1--10 scale;
 
@@ -56,7 +56,7 @@ The project aims to:
 
 ### Scope and limitations
 
-The analysis covers 19 countries across North America, Europe, East Asia, South/Southeast Asia, the Middle East, Africa, and Oceania. Theme scores are expert-curated syntheses informed by regulatory documents and literature—they are comparative indicators, not official government ratings. Use-case readiness scores in the dashboard are *derived* from theme weights rather than separate regulatory datasets. This report is an academic and decision-support artefact, not legal advice.
+The analysis covers 20 countries across North America, Europe, East Asia, South/Southeast Asia, the Middle East, Africa, and Oceania. Theme scores are expert-curated syntheses informed by regulatory documents and literature—they are comparative indicators, not official government ratings. Use-case readiness scores in the dashboard are *derived* from theme weights rather than separate regulatory datasets. This report is an academic and decision-support artefact, not legal advice.
 
 ## Literature review
 
@@ -123,7 +123,7 @@ Post-market systems include FDA MedWatch, EU MDR serious-incident reporting, and
 
 ## Research design
 
-The project follows a mixed documentary and engineering design. First, a structured literature and policy review produced a common coding schema for 19 jurisdictions. Second, each jurisdiction was scored on seven compliance themes. Third, the coded dataset was implemented as an interactive dashboard so that scores, gaps, and narratives can be explored without reading the raw JSON. No machine-learning model generates scores at runtime; all scores are curated from documentary evidence.
+The project follows a mixed documentary and engineering design. First, a structured literature and policy review produced a common coding schema for 20 jurisdictions. Second, each jurisdiction was scored on seven compliance themes. Third, the coded dataset was implemented as an interactive dashboard so that scores, gaps, and narratives can be explored without reading the raw JSON. No machine-learning model generates scores at runtime; all scores are curated from documentary evidence.
 
 ## Literature search strategy
 
@@ -190,7 +190,7 @@ The canonical dataset is version-controlled in `data/compliance_dataset.json`.
 
 ## Pipeline summary
 
-1. Scope 19 jurisdictions across seven regions.
+1. Scope 20 jurisdictions across seven regions.
 
 2. Collect primary regulatory texts and secondary literature (2018--2026).
 
@@ -229,7 +229,7 @@ Figures and and Table answer two questions: which themes are strongest worldwide
 
 ![Figure](./report-figures/theme_averages.png)
 
-***Global average score by theme.** For each of the seven compliance themes, the bar shows the mean score across all 19 countries. Higher bars mean that theme is more mature worldwide. Approval process and data privacy tend to lead (device pathways and post-GDPR privacy laws are widespread). Post-market surveillance and liability tend to lag, showing that lifecycle governance and accountability remain the weakest global pillars.*
+***Global average score by theme.** For each of the seven compliance themes, the bar shows the mean score across all 20 countries. Higher bars mean that theme is more mature worldwide. Approval process and data privacy tend to lead (device pathways and post-GDPR privacy laws are widespread). Post-market surveillance and liability tend to lag, showing that lifecycle governance and accountability remain the weakest global pillars.*
 
 ![Figure](./report-figures/theme_gaps.png)
 
@@ -254,7 +254,7 @@ Figure shows the frequency of maturity classes. Most jurisdictions in the sample
 
 ![Figure](./report-figures/maturity_mix.png)
 
-***Maturity-class distribution.** Pie slices show how many of the 19 jurisdictions fall into each qualitative maturity class (Early, Emerging, Developing, Moderate, Advanced). Maturity is assigned from documentary evidence (AI-specific rules, device pathway, approval activity, privacy/ethics enforcement)—not from a hidden formula on the scores alone. The Advanced slice is large because the sample deliberately includes major regulators; Early/Emerging countries define the capacity gap.*
+***Maturity-class distribution.** Pie slices show how many of the 20 jurisdictions fall into each qualitative maturity class (Early, Emerging, Developing, Moderate, Advanced). Maturity is assigned from documentary evidence (AI-specific rules, device pathway, approval activity, privacy/ethics enforcement)—not from a hidden formula on the scores alone. The Advanced slice is large because the sample deliberately includes major regulators; Early/Emerging countries define the capacity gap.*
 
 ![Figure](./report-figures/regional_overall.png)
 

@@ -136,7 +136,7 @@ def load_data():
         "IND": "IND", "JPN": "JPN", "CAN": "CAN", "AUS": "AUS",
         "KOR": "KOR", "SGP": "SGP", "BRA": "BRA", "SAU": "SAU",
         "ZAF": "ZAF", "NGA": "NGA", "KEN": "KEN", "ISR": "ISR",
-        "CHE": "CHE", "ARE": "ARE", "THA": "THA",
+        "CHE": "CHE", "ARE": "ARE", "THA": "THA", "MEX": "MEX",
     }
     df["ISO3"] = df["ISO"].map(iso_map)
 
@@ -204,7 +204,7 @@ with st.sidebar:
     st.markdown("### About")
     st.markdown(
         "This dashboard provides an interactive comparison of AI healthcare "
-        "compliance and regulatory frameworks across 19 countries."
+        "compliance and regulatory frameworks across 20 countries."
     )
     st.markdown(
         "**Supervisor:** Dr. Anuradha Kar"
@@ -233,7 +233,7 @@ selected_score_cols = [theme_label_to_col[t] for t in selected_themes]
 # ---------------------------------------------------------------------------
 st.markdown('<p class="main-header">AI Healthcare Compliance & Regulations Dashboard</p>', unsafe_allow_html=True)
 st.markdown(
-    '<p class="sub-header">Interactive comparison of AI regulations in healthcare across 19 countries and 7 regions</p>',
+    '<p class="sub-header">Interactive comparison of AI regulations in healthcare across 20 countries and 7 regions</p>',
     unsafe_allow_html=True,
 )
 

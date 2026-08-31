@@ -2,7 +2,7 @@ export const DASHBOARD_TITLE =
   "AI for Healthcare Compliance and Regulations Across Countries";
 
 export const DASHBOARD_TAGLINE =
-  "Interactive comparison of AI regulations in healthcare across 19 countries and 7 regions";
+  "Interactive comparison of AI regulations in healthcare across 20 countries and 7 regions";
 
 export type GuideSection = {
   id: string;
@@ -99,14 +99,14 @@ export const LITERATURE_SECTIONS: { heading: string; paragraphs: string[] }[] = 
   {
     heading: "Abstract",
     paragraphs: [
-      "Artificial Intelligence (AI) is transforming healthcare through diagnostics, clinical decision support, drug discovery, and patient management. Deployment in clinical settings is governed by a complex, rapidly evolving landscape of regulations, compliance frameworks, and ethical guidelines that vary across countries. This review synthesizes policy documents, regulatory guidelines, and peer-reviewed research across 19 countries in North America, Europe, Asia, the Middle East, Africa, and Oceania. Seven themes are mapped: data privacy and governance, clinical validation and safety, regulatory approval processes, algorithmic transparency, ethical considerations, post-market surveillance, and liability. Findings show a global trend toward risk-based regulation and comprehensive data protection, with large disparities in enforcement, AI-specific legislation, and ethical governance between advanced economies and emerging markets.",
+      "Artificial Intelligence (AI) is transforming healthcare through diagnostics, clinical decision support, drug discovery, and patient management. Deployment in clinical settings is governed by a complex, rapidly evolving landscape of regulations, compliance frameworks, and ethical guidelines that vary across countries. This review synthesizes policy documents, regulatory guidelines, and peer-reviewed research across 20 countries in North America, Europe, Asia, the Middle East, Africa, and Oceania. Seven themes are mapped: data privacy and governance, clinical validation and safety, regulatory approval processes, algorithmic transparency, ethical considerations, post-market surveillance, and liability. Findings show a global trend toward risk-based regulation and comprehensive data protection, with large disparities in enforcement, AI-specific legislation, and ethical governance between advanced economies and emerging markets.",
     ],
   },
   {
     heading: "1. Introduction",
     paragraphs: [
       "AI-based Software as a Medical Device (SaMD) now assists clinicians in radiology, pathology, ophthalmology, cardiology, and genomics (Topol, 2019; Rajpurkar et al., 2022). The U.S. FDA has authorized hundreds of AI/ML-enabled devices, reflecting rapid growth (FDA, 2025). Unlike traditional devices, AI can be adaptive, opaque, and trained on biased data — raising questions existing frameworks were not designed to address (Gerke et al., 2020; Char et al., 2018).",
-      "Objectives: (1) synthesize literature on AI healthcare regulation; (2) analyze key themes; (3) map regional similarities and differences; (4) highlight gaps, challenges, and trends; (5) inform this interactive dashboard. Methods used PubMed, Scopus, IEEE Xplore, Google Scholar, SSRN; FDA, EMA, MHRA, NMPA, WHO, OECD; national AI strategies and device rules; search terms on SaMD, ethics, health-data governance; inclusion 2018–2026; scope 19 countries / 7 regions.",
+      "Objectives: (1) synthesize literature on AI healthcare regulation; (2) analyze key themes; (3) map regional similarities and differences; (4) highlight gaps, challenges, and trends; (5) inform this interactive dashboard. Methods used PubMed, Scopus, IEEE Xplore, Google Scholar, SSRN; FDA, EMA, MHRA, NMPA, WHO, OECD; national AI strategies and device rules; search terms on SaMD, ethics, health-data governance; inclusion 2018–2026; scope 20 countries / 7 regions.",
     ],
   },
   {

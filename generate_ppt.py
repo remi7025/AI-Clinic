@@ -299,7 +299,7 @@ def build() -> None:
     bullets(
         sl,
         [
-            "Synthesise literature and regulatory texts on AI healthcare compliance across 19 jurisdictions.",
+            "Synthesise literature and regulatory texts on AI healthcare compliance across 20 jurisdictions.",
             "Define seven thematic dimensions and score maturity on a transparent 1–10 scale.",
             "Build a curated, machine-readable dataset with regional metadata and global trends.",
             "Implement an interactive dashboard for exploration, comparison, and literature browsing.",
@@ -317,7 +317,7 @@ def build() -> None:
     sl = prs.slides.add_slide(prs.slide_layouts[6])
     title_bar(sl, "Methodology pipeline: data collection → score calculation")
     steps = [
-        ("1. Scope", "19 jurisdictions across seven regions: North America, Europe, Asia, Middle East, Africa, Oceania, South America."),
+        ("1. Scope", "20 jurisdictions across seven regions: North America, Europe, Asia, Middle East, Africa, Oceania, South America."),
         ("2. Collect", "Primary: FDA, EMA, MHRA, NMPA, PMDA, WHO, IMDRF, GDPR/AI Act…\nSecondary: PubMed, Scopus, IEEE, Scholar, SSRN (2018–2026)."),
         ("3. Code", "Same schema for every country: privacy, AI rule, device framework, approval, validation, ethics, post-market, liability…"),
         ("4. Score", "Assign 1–10 per theme using 4 criteria; assign qualitative maturity label separately."),

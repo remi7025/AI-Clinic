@@ -84,6 +84,19 @@ A near-universal trend is proportional regulation by potential harm. Higher-risk
 | Canada | Health Canada | I, II, III, IV |
 | Japan | PMDA / PMD Act | I, II, III, IV |
 | Australia | TGA | I, IIa, IIb, III |
+
+**How to read the risk classes.** 
+The table lists how selected jurisdictions *label* medical devices (including AI software as a medical device, SaMD) into risk tiers. The class names differ by country, but the principle is the same worldwide: **higher class = higher potential harm if the device fails = stricter approval and post-market oversight**. Classification is based on **intended use** and **patient risk**—not on how "advanced" the algorithm is.
+Regulators typically consider: (i) how serious the patient's condition is; (ii) how much the device's output drives diagnosis or treatment; and (iii) what harm could result from a wrong output (minor inconvenience versus serious injury or death).
+
+- **Class I (lowest risk):** low impact if wrong; often general controls only (labelling, quality). Many US Class I devices are exempt from premarket submission; many EU Class I products can be self-declared for CE marking.
+
+- **Class II / EU IIa--IIb (moderate risk):** more clinical evidence and regulatory review than Class I. In the US, Class II often follows a 510(k) or De Novo pathway. The EU splits medium risk into **IIa** (lower--moderate) and **IIb** (moderate--higher, closer to Class III).
+
+- **Class III (highest risk in three-tier systems):** life-sustaining, life-supporting, or high harm if wrong; strongest premarket evidence (e.g.\ FDA PMA, EU Class III with full notified-body review).
+
+- **Class IV (Canada and Japan):** highest tier in four-class systems; comparable role to Class III elsewhere.
+For AI/SaMD, illustrative examples are: administrative or low-risk wellness software (Class I or non-device); AI that *flags* findings for clinician review (often Class II / EU IIa); AI that *strongly drives* diagnosis in serious disease (Class II--III / EU IIb--III); autonomous critical treatment decisions (typically Class III / EU III). These classes feed the *approval process* theme in the project dataset; they are product-risk labels, distinct from the jurisdiction-level maturity scores used elsewhere in this report.
 AI/ML algorithms can evolve with new data. Regulators therefore move from point-in-time approval toward lifecycle approaches . The FDA Predetermined Change Control Plan (PCCP) allows pre-specified modifications without a new submission for every change . The EU AI Act requires ongoing conformity and risk management. Good Machine Learning Practice (GMLP) principles from the FDA, Health Canada, and the MHRA guide development practice .
 
 ### Data privacy and governance

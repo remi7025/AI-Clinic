@@ -11,7 +11,7 @@ export function LoadingScreen() {
       </div>
       <div className="text-center">
         <p className="text-lg font-semibold text-white">AI Healthcare Compliance</p>
-        <p className="mt-1 text-sm text-white/50">Loading regulatory intelligence…</p>
+        <p className="mt-1 text-sm text-white/50">20 countries · 7 themes · loading regulatory intelligence…</p>
       </div>
       <div className="h-1 w-48 overflow-hidden rounded-full bg-white/10">
         <div className="loading-bar h-full w-full rounded-full" />

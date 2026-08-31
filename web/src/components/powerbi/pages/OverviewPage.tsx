@@ -29,7 +29,7 @@ const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
 const CHART_H = 240;
 
 export function OverviewPage() {
-  const { filtered, selectedThemes } = useDashboard();
+  const { filtered, selectedThemes, countries } = useDashboard();
   const [hover, setHover] = useState<{
     name: string;
     region: string;
@@ -49,8 +49,8 @@ export function OverviewPage() {
           ).toFixed(1)
         : "—";
     const advanced = filtered.filter((r) => r.maturity === "Advanced").length;
-    return { devices, avg, advanced, count: filtered.length };
-  }, [filtered, selectedThemes]);
+    return { devices, avg, advanced, count: countries.length };
+  }, [filtered, selectedThemes, countries.length]);
 
   const topCountries = useMemo(() => {
     const rows = filtered.map((r) => ({
@@ -111,7 +111,7 @@ export function OverviewPage() {
   return (
     <div className="flex h-full flex-col gap-3 p-3">
       <div className="grid shrink-0 grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
-        <KpiTile label="Countries in view" value={String(stats.count)} icon={Globe}
+        <KpiTile label="Countries covered" value={String(stats.count)} icon={Globe}
           gradient="linear-gradient(135deg, #118dff, #06b6d4)" glow="rgba(17,141,255,0.25)" />
         <KpiTile label="Avg compliance" value={`${stats.avg}/10`} icon={Shield}
           gradient="linear-gradient(135deg, #7c3aed, #118dff)" glow="rgba(124,58,237,0.25)" />

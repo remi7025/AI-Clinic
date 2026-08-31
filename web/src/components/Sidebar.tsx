@@ -126,7 +126,7 @@ export function Sidebar() {
         <div className="flex items-start gap-2">
           <Info className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
           <p>
-            Compare AI healthcare compliance across 20 countries.
+            Compare AI healthcare compliance across 19 countries.
           </p>
         </div>
         <a

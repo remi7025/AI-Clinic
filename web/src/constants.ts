@@ -59,7 +59,6 @@ export const ISO3_MAP: Record<string, string> = {
   ISR: "ISR",
   CHE: "CHE",
   ARE: "ARE",
-  DEU: "DEU",
   THA: "THA",
 };
 
@@ -81,7 +80,6 @@ export const ATLAS_NAME_TO_ISO3: Record<string, string> = {
   Israel: "ISR",
   Switzerland: "CHE",
   "United Arab Emirates": "ARE",
-  Germany: "DEU",
   Thailand: "THA",
 };
 

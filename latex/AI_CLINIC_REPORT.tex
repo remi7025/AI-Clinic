@@ -148,7 +148,7 @@ Artificial intelligence (AI) is reshaping healthcare through diagnostic imaging,
 
 This project delivers a research and engineering artefact in three steps:
 \begin{enumerate}[label=(\roman*), leftmargin=*, itemsep=2pt, topsep=4pt]
-  \item a structured literature review of AI healthcare compliance across 20 countries in seven regions;
+  \item a structured literature review of AI healthcare compliance across 19 countries in seven regions;
   \item a curated dataset scoring seven regulatory themes on a 1--10 scale;
   \item an interactive dashboard for geospatial comparison, theme analysis, global trends, use-case readiness, and literature browsing.
 \end{enumerate}
@@ -199,7 +199,7 @@ Public information on AI healthcare regulation is abundant but fragmented: statu
 
 The project aims to:
 \begin{enumerate}
-  \item Synthesise peer-reviewed and policy literature on AI healthcare regulation across 20 countries;
+  \item Synthesise peer-reviewed and policy literature on AI healthcare regulation across 19 countries;
   \item Define seven thematic dimensions of compliance and score jurisdictional maturity on a 1--10 scale;
   \item Build a curated, machine-readable dataset with regional metadata and global trends;
   \item Implement an interactive dashboard for exploration, comparison, and literature browsing;
@@ -208,7 +208,7 @@ The project aims to:
 
 \subsection{Scope and limitations}
 
-The analysis covers 20 countries across North America, Europe, East Asia, South/Southeast Asia, the Middle East, Africa, and Oceania. Theme scores are expert-curated syntheses informed by regulatory documents and literature---they are comparative indicators, not official government ratings. Use-case readiness scores in the dashboard are \emph{derived} from theme weights rather than separate regulatory datasets. This report is an academic and decision-support artefact, not legal advice.
+The analysis covers 19 countries across North America, Europe, East Asia, South/Southeast Asia, the Middle East, Africa, and Oceania. Theme scores are expert-curated syntheses informed by regulatory documents and literature---they are comparative indicators, not official government ratings. Use-case readiness scores in the dashboard are \emph{derived} from theme weights rather than separate regulatory datasets. This report is an academic and decision-support artefact, not legal advice.
 
 \section{Literature review}
 \label{sec:lit}
@@ -278,7 +278,7 @@ Post-market systems include FDA MedWatch, EU MDR serious-incident reporting, and
 
 \section{Research design}
 
-The project follows a mixed documentary and engineering design. First, a structured literature and policy review produced a common coding schema for 20 jurisdictions. Second, each jurisdiction was scored on seven compliance themes. Third, the coded dataset was implemented as an interactive dashboard so that scores, gaps, and narratives can be explored without reading the raw JSON. No machine-learning model generates scores at runtime; all scores are curated from documentary evidence.
+The project follows a mixed documentary and engineering design. First, a structured literature and policy review produced a common coding schema for 19 jurisdictions. Second, each jurisdiction was scored on seven compliance themes. Third, the coded dataset was implemented as an interactive dashboard so that scores, gaps, and narratives can be explored without reading the raw JSON. No machine-learning model generates scores at runtime; all scores are curated from documentary evidence.
 
 \section{Literature search strategy}
 
@@ -328,7 +328,7 @@ Maturity is a country-level qualitative class stored in the dataset (\texttt{mat
   \item \textbf{Emerging} --- data protection and/or voluntary AI ethics exist, but SaMD / AI-device pathways are still forming (e.g.\ Saudi Arabia, South Africa);
   \item \textbf{Developing} --- a medical-device framework is in place and AI guidance is appearing, with moderate institutional capacity (e.g.\ India, Brazil);
   \item \textbf{Moderate} --- functioning SaMD registration, international alignment, and a working post-market system (e.g.\ Australia);
-  \item \textbf{Advanced} --- dedicated AI/ML SaMD pathways or high-risk AI law, substantial device authorisations, and lifecycle governance (e.g.\ United States, EU, United Kingdom, Germany, Japan, Singapore).
+  \item \textbf{Advanced} --- dedicated AI/ML SaMD pathways or high-risk AI law, substantial device authorisations, and lifecycle governance (e.g.\ United States, EU, United Kingdom, Japan, Singapore).
 \end{itemize}
 
 Device risk classes (FDA I--III, MDR I--III, etc.) describe the \emph{product}. Maturity classes describe the \emph{jurisdiction's} governance. They are independent constructs.
@@ -364,7 +364,7 @@ The canonical dataset is version-controlled in \texttt{data/compliance\_dataset.
 \section{Pipeline summary}
 
 \begin{enumerate}
-  \item Scope 20 jurisdictions across seven regions.
+  \item Scope 19 jurisdictions across seven regions.
   \item Collect primary regulatory texts and secondary literature (2018--2026).
   \item Code each country into a common schema.
   \item Assign 1--10 theme scores and a maturity label.
@@ -381,7 +381,7 @@ This chapter presents the comparative findings from the 20-jurisdiction dataset.
 
 \section{Overall ranking and score matrix}
 
-Table~\ref{tab:overall-rank} ranks all jurisdictions by the arithmetic mean of the seven theme scores. The European Union aggregate, Germany, and the United States occupy the top tier (overall $\geq 7.6$). Kenya and Nigeria sit at the bottom of the sample (overall $\approx 2.7$--$2.9$), illustrating the capacity gap between advanced regulators and early-stage systems.
+Table~\ref{tab:overall-rank} ranks all jurisdictions by the arithmetic mean of the seven theme scores. The European Union and the United States occupy the top tier (overall $\geq 7.6$). Kenya and Nigeria sit at the bottom of the sample (overall $\approx 2.7$--$2.9$), illustrating the capacity gap between advanced regulators and early-stage systems.
 
 \input{generated/overall_rank.tex}
 
@@ -390,7 +390,7 @@ Figure~\ref{fig:overall-ranking} visualises the same ranking as a horizontal bar
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=0.82\textwidth]{figures/overall_ranking.png}
-  \caption[Overall country ranking]{\textbf{Overall country ranking.} Each bar is the mean of the seven theme scores (1--10) for one jurisdiction. Bars are coloured by region. Longer bars mean stronger documented AI healthcare compliance. Read from bottom (highest) to top (lowest): the EU, Germany, and the United States lead; Kenya and Nigeria trail. Use this figure to show the jury the global spread of regulatory maturity at a glance.}
+  \caption[Overall country ranking]{\textbf{Overall country ranking.} Each bar is the mean of the seven theme scores (1--10) for one jurisdiction. Bars are coloured by region. Longer bars mean stronger documented AI healthcare compliance. Read from bottom (highest) to top (lowest): the EU and the United States lead; Kenya and Nigeria trail. Use this figure to show the jury the global spread of regulatory maturity at a glance.}
   \label{fig:overall-ranking}
 \end{figure}
 
@@ -407,7 +407,7 @@ Figures~\ref{fig:theme-averages} and~\ref{fig:theme-gaps} and Table~\ref{tab:the
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=0.88\textwidth]{figures/theme_averages.png}
-  \caption[Global average score by theme]{\textbf{Global average score by theme.} For each of the seven compliance themes, the bar shows the mean score across all 20 countries. Higher bars mean that theme is more mature worldwide. Approval process and data privacy tend to lead (device pathways and post-GDPR privacy laws are widespread). Post-market surveillance and liability tend to lag, showing that lifecycle governance and accountability remain the weakest global pillars.}
+  \caption[Global average score by theme]{\textbf{Global average score by theme.} For each of the seven compliance themes, the bar shows the mean score across all 19 countries. Higher bars mean that theme is more mature worldwide. Approval process and data privacy tend to lead (device pathways and post-GDPR privacy laws are widespread). Post-market surveillance and liability tend to lag, showing that lifecycle governance and accountability remain the weakest global pillars.}
   \label{fig:theme-averages}
 \end{figure}
 
@@ -439,7 +439,7 @@ Figure~\ref{fig:maturity-mix} shows the frequency of maturity classes. Most juri
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=0.72\textwidth]{figures/maturity_mix.png}
-  \caption[Maturity-class distribution]{\textbf{Maturity-class distribution.} Pie slices show how many of the 20 jurisdictions fall into each qualitative maturity class (Early, Emerging, Developing, Moderate, Advanced). Maturity is assigned from documentary evidence (AI-specific rules, device pathway, approval activity, privacy/ethics enforcement)---not from a hidden formula on the scores alone. The Advanced slice is large because the sample deliberately includes major regulators; Early/Emerging countries define the capacity gap.}
+  \caption[Maturity-class distribution]{\textbf{Maturity-class distribution.} Pie slices show how many of the 19 jurisdictions fall into each qualitative maturity class (Early, Emerging, Developing, Moderate, Advanced). Maturity is assigned from documentary evidence (AI-specific rules, device pathway, approval activity, privacy/ethics enforcement)---not from a hidden formula on the scores alone. The Advanced slice is large because the sample deliberately includes major regulators; Early/Emerging countries define the capacity gap.}
   \label{fig:maturity-mix}
 \end{figure}
 
@@ -469,7 +469,7 @@ Table~\ref{tab:regional-means} and Figures~\ref{fig:regional-overall}--\ref{fig:
 The United States and Canada are both Advanced. The US leads on approval process and clinical validation (FDA pathways plus PCCP) but is weaker on binding transparency and federal ethics law; HIPAA is sectoral rather than GDPR-equivalent \cite{cohen2018}. Canada pairs Health Canada device classes with closer GMLP alignment. North America offers high market-access volume with careful multi-state privacy mapping.
 
 \subsection{Europe}
-The EU aggregate, Germany, the United Kingdom, and Switzerland form the densest high-compliance cluster. The EU AI Act adds a binding high-risk layer on MDR SaMD and GDPR, lifting ethics and transparency relative to voluntary NIST-style frameworks \cite{euaiact2024}. Europe is the reference region for rights-based AI healthcare governance.
+The EU, the United Kingdom, and Switzerland form the densest high-compliance cluster. The EU AI Act adds a binding high-risk layer on MDR SaMD and GDPR, lifting ethics and transparency relative to voluntary NIST-style frameworks \cite{euaiact2024}. Europe is the reference region for rights-based AI healthcare governance.
 
 \subsection{Asia}
 Asia is the most internally diverse region. Japan and Singapore combine mature agencies with structured AI guidance; South Korea and China show high approval throughput and algorithm-specific rules \cite{nmpa2021,pmda2020}. India and Thailand remain Developing: medical-device frameworks exist, but AI-specific validation and post-market duties are thinner. Cross-border AI deployment in Asia cannot assume a single evidence package.
@@ -491,7 +491,7 @@ Figure~\ref{fig:peer-comparison} compares five representative jurisdictions side
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=0.78\textwidth]{figures/radar_top5.png}
-  \caption[Radar profiles of the top five scorers]{\textbf{Radar profiles of the top five scorers:}\\ Each coloured polygon is one top jurisdiction across the seven themes (axes from centre 0 to outer rim 10). A wider polygon means stronger scores. Compare shapes: EU/Germany typically extend farthest on privacy and ethics; the United States extends farthest on clinical validation and approval process, with a relative dip on transparency/ethics. This shows that ``best country'' depends on which theme matters for the product.}
+  \caption[Radar profiles of the top five scorers]{\textbf{Radar profiles of the top five scorers:}\\ Each coloured polygon is one top jurisdiction across the seven themes (axes from centre 0 to outer rim 10). A wider polygon means stronger scores. Compare shapes: the EU typically extends farthest on privacy and ethics; the United States extends farthest on clinical validation and approval process, with a relative dip on transparency/ethics. This shows that ``best country'' depends on which theme matters for the product.}
   \label{fig:radar-top5}
 \end{figure}
 
@@ -542,7 +542,7 @@ The global regulatory landscape for AI in healthcare is characterised by rapid e
 
 \begin{enumerate}
   \item \textbf{Risk-based SaMD pathways and data-protection laws are the most mature themes globally}, which is why approval process and privacy lead the theme averages.
-  \item \textbf{Europe and North America dominate the overall ranking}, with the EU/Germany strongest on enforceable ethics and transparency, and the United States strongest on clinical validation and device volume.
+  \item \textbf{Europe and North America dominate the overall ranking}, with the EU strongest on enforceable ethics and transparency, and the United States strongest on clinical validation and device volume.
   \item \textbf{Asia is internally heterogeneous}: Japan, Singapore, South Korea, and China are Advanced, while India and Thailand remain Developing---so regional averages hide strategy-critical differences.
   \item \textbf{Lifecycle governance lags}: post-market surveillance and liability show lower averages and large gaps, especially between Advanced and Early jurisdictions.
   \item \textbf{Peer gaps are theme-specific}: the US--EU--China--India--South Africa comparison shows Advanced leaders dominate most themes, while Developing/Emerging peers lag most on clinical validation, post-market, and liability.

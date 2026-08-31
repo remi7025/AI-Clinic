@@ -85,7 +85,7 @@ export function WorldMapTab() {
       {filtered.some((r) => r.iso === "EU") && (
         <p className="rounded-lg bg-indigo-50 px-4 py-2 text-sm text-indigo-800">
           Note: European Union is a regional aggregate and is excluded from the choropleth map.
-          Individual EU member states in the dataset (e.g. Germany, UK, Switzerland) are shown.
+          Individual EU member states in the dataset (e.g. UK, Switzerland) are shown.
         </p>
       )}
 

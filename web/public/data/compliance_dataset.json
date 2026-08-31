@@ -685,44 +685,6 @@
       "notable_developments": "First country to appoint a Minister of State for AI (2017). Ambitious National AI Strategy 2031. Hub for health AI startups and international collaborations."
     },
     {
-      "country": "Germany",
-      "iso_code": "DEU",
-      "region": "Europe",
-      "regulatory_body": "BfArM (Federal Institute for Drugs and Medical Devices)",
-      "data_privacy_law": "GDPR + BDSG (Federal Data Protection Act)",
-      "ai_specific_regulation": "EU AI Act (as EU member). National AI Strategy (2018, updated 2020).",
-      "medical_device_framework": "EU MDR implemented domestically. BfArM scientific advice for AI devices.",
-      "approval_process": "EU MDR conformity assessment pathway. BfArM provides scientific advice. DiGA (Digital Health Applications) fast-track for prescribed digital therapies covered by statutory health insurance.",
-      "data_governance": "GDPR + BDSG. Strict interpretation of data protection. Patient Data Protection Act (PDSG, 2021). Electronic health record (ePA) rollout. German Health Data Use Act (2024).",
-      "clinical_validation": "DiGA requires evidence of positive healthcare effects. BfArM evaluation within 12 months. Real-world evidence accepted for DiGA provisional listing.",
-      "algorithmic_transparency": "EU AI Act transparency requirements. BDSG automated decision provisions. Strong culture of data protection enforcement.",
-      "ethical_framework": "Data Ethics Commission recommendations (2019). AI Observatory at BMAS. EU AI Act ethical framework. Strong academic ethics research tradition.",
-      "post_market_surveillance": "EU MDR post-market surveillance. BfArM device vigilance. DiGA requires ongoing evidence generation.",
-      "liability": "Product Liability Act. EU AI Liability Directive (when enacted). Medical malpractice law.",
-      "key_legislations": [
-        "GDPR/BDSG",
-        "EU MDR",
-        "DiGA Regulation (2020)",
-        "PDSG (2021)",
-        "National AI Strategy (2018/2020)",
-        "Health Data Use Act (2024)"
-      ],
-      "maturity_level": "Advanced",
-      "year_first_ai_regulation": 2018,
-      "num_ai_devices_approved": 180,
-      "themes_scores": {
-        "data_privacy": 10,
-        "clinical_validation": 9,
-        "approval_process": 9,
-        "transparency": 8,
-        "ethics": 9,
-        "post_market": 9,
-        "liability": 7
-      },
-      "challenges": "Historically strict data protection culture can slow health data utilization. DiGA program growing pains. Interoperability of health IT systems.",
-      "notable_developments": "DiGA is the world's first regulatory pathway for prescribed digital therapies reimbursed by statutory health insurance. Health Data Use Act aims to unlock research data. Leading EU voice in AI regulation."
-    },
-    {
       "country": "Thailand",
       "iso_code": "THA",
       "region": "Asia",

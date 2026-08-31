@@ -22,7 +22,7 @@ const PAGES = [
 export type PowerBIPage = (typeof PAGES)[number]["id"];
 
 export function PowerBIHeader() {
-  const { activePage, setActivePage, countries } = useDashboard();
+  const { activePage, setActivePage } = useDashboard();
 
   return (
     <header className="pbi-header relative shrink-0">
@@ -42,7 +42,7 @@ export function PowerBIHeader() {
               </span>
             </div>
             <p className="mt-0.5 text-[11px] text-white/50">
-              {countries.length} countries · 7 compliance themes · FDA · EU AI Act · WHO · OECD
+              20 countries · 7 compliance themes · FDA · EU AI Act · WHO · OECD
             </p>
           </div>
         </div>

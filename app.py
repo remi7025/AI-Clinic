@@ -242,7 +242,7 @@ st.markdown(
 # ---------------------------------------------------------------------------
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.metric("Countries Covered", len(filtered_df))
+    st.metric("Countries Covered", 20)
 with col2:
     st.metric("Regions", filtered_df["Region"].nunique())
 with col3:

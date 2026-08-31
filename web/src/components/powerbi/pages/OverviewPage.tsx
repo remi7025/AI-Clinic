@@ -111,7 +111,7 @@ export function OverviewPage() {
   return (
     <div className="flex h-full flex-col gap-3 p-3">
       <div className="grid shrink-0 grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
-        <KpiTile label="Countries covered" value={String(stats.count)} icon={Globe}
+        <KpiTile label="Countries covered" value="20" icon={Globe}
           gradient="linear-gradient(135deg, #118dff, #06b6d4)" glow="rgba(17,141,255,0.25)" />
         <KpiTile label="Avg compliance" value={`${stats.avg}/10`} icon={Shield}
           gradient="linear-gradient(135deg, #7c3aed, #118dff)" glow="rgba(124,58,237,0.25)" />

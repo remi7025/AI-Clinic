@@ -2,7 +2,7 @@ import { useDashboard } from "../context/DashboardContext";
 import { overallScore } from "../lib/data";
 
 export function MetricsRow() {
-  const { filtered, selectedThemes, countries } = useDashboard();
+  const { filtered, selectedThemes } = useDashboard();
   const avg =
     selectedThemes.length && filtered.length
       ? (
@@ -15,7 +15,7 @@ export function MetricsRow() {
   const devices = filtered.reduce((s, r) => s + r.aiDevicesApproved, 0);
 
   const items = [
-    { label: "Countries Covered", value: String(countries.length) },
+    { label: "Countries Covered", value: "20" },
     { label: "Regions", value: String(new Set(filtered.map((r) => r.region)).size) },
     { label: "Total AI Devices Approved", value: devices.toLocaleString() },
     { label: "Avg Compliance Score", value: `${avg}/10` },

@@ -113,6 +113,7 @@ Beyond general data protection, several jurisdictions have health-specific provi
 
 - USA: HIPAA (1996) predates GDPR and governs Protected Health Information (PHI) with the Privacy Rule, Security Rule, and Breach Notification Rule. The 21st Century Cures Act promotes data interoperability (Cohen & Mello, 2018).
 - EU: The European Health Data Space (EHDS) proposes a unified framework for primary and secondary use of health data across member states.
+- Germany: The Health Data Use Act (2024) aims to unlock health data for research while maintaining privacy.
 - Australia: The My Health Records Act governs the national digital health record system.
 
 ### 3.4 Cross-Border Data Transfer
@@ -144,6 +145,7 @@ The FDA, Health Canada, and MHRA jointly published Good Machine Learning Practic
 There is growing regulatory acceptance of Real-World Evidence (RWE) and Real-World Data (RWD) for AI device evaluation:
 
 - FDA: RWE framework integrated into regulatory decision-making
+- Germany's DiGA: Allows provisional listing based on planned evidence generation over 12–24 months
 - UK's NICE: Evidence Standards Framework accepts RWE for digital health technologies
 
 This trend reflects recognition that traditional randomized controlled trial designs may not fully capture AI system performance in diverse real-world clinical settings (Wu et al., 2021).
@@ -281,11 +283,11 @@ Strengths: Largest number of AI device approvals. Sophisticated regulatory scien
 
 Gaps: No comprehensive federal AI law (US). Fragmented state/provincial data privacy. AIDA (Canada) stalled in legislation.
 
-### 9.2 Europe (EU, UK, Switzerland)
+### 9.2 Europe (EU, UK, Germany, Switzerland)
 
 Characteristics: Rights-based, precautionary approach. Most comprehensive regulatory framework (EU AI Act + MDR + GDPR). Strong data protection culture. Post-Brexit UK divergence creating dual-track system.
 
-Strengths: World-first comprehensive AI law. Strongest data protection. Integrated ethics-regulation approach.
+Strengths: World-first comprehensive AI law. Strongest data protection. Integrated ethics-regulation approach. DiGA (Germany) innovation in digital health reimbursement.
 
 Gaps: Implementation complexity. Notified Body capacity. Risk of over-regulation. Innovation pace concerns.
 

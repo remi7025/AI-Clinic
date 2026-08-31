@@ -136,7 +136,7 @@ def load_data():
         "IND": "IND", "JPN": "JPN", "CAN": "CAN", "AUS": "AUS",
         "KOR": "KOR", "SGP": "SGP", "BRA": "BRA", "SAU": "SAU",
         "ZAF": "ZAF", "NGA": "NGA", "KEN": "KEN", "ISR": "ISR",
-        "CHE": "CHE", "ARE": "ARE", "THA": "THA", "MEX": "MEX",
+        "CHE": "CHE", "ARE": "ARE", "THA": "THA", "DEU": "DEU",
     }
     df["ISO3"] = df["ISO"].map(iso_map)
 

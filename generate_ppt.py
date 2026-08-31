@@ -416,7 +416,7 @@ def build() -> None:
         Inches(6.55),
         Inches(12.2),
         Inches(0.5),
-        "Mean of seven theme scores. EU / United States lead; Kenya and Nigeria trail — capacity gap at a glance.",
+        "Mean of seven theme scores. EU / Germany / United States lead; Kenya and Nigeria trail — capacity gap at a glance.",
         size=12,
         color=MED,
     )

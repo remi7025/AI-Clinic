@@ -43,7 +43,7 @@ export const METHOD_SECTIONS: GuideSection[] = [
       "Emerging — Data protection and/or voluntary AI ethics exist, but SaMD / AI-device pathways are still forming and approval volume is low (e.g. Saudi Arabia, South Africa).",
       "Developing — A medical-device framework is in place and AI guidance is appearing, with moderate institutional capacity (e.g. India, Brazil).",
       "Moderate — Functioning SaMD registration, international alignment (IMDRF-style risk classes), and a working post-market system, with mid-range approval volume (e.g. Australia).",
-      "Advanced — Dedicated AI/ML SaMD pathways or high-risk AI law, substantial device authorizations, lifecycle governance (e.g. TPLC / PCCP), and enforceable privacy or ethics rules (e.g. United States, EU, United Kingdom, Japan, Singapore, South Korea, China, Canada, Israel, Switzerland).",
+      "Advanced — Dedicated AI/ML SaMD pathways or high-risk AI law, substantial device authorizations, lifecycle governance (e.g. TPLC / PCCP), and enforceable privacy or ethics rules (e.g. United States, EU, United Kingdom, Germany, Japan, Singapore, South Korea, China, Canada, Israel, Switzerland).",
     ],
   },
   {
